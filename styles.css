@@ -316,6 +316,13 @@ textarea {
   margin: 1rem;
 }
 
+.project-image-toronto-drop-in img {
+  object-fit: contain;
+  object-position: center top;
+  transform: scale(1.5);
+  transform-origin: center top;
+}
+
 .thumb-02 {
   background:
     radial-gradient(circle at 78% 26%, rgba(244, 114, 182, 0.35), transparent 30%),

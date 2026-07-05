@@ -296,10 +296,15 @@ textarea {
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(9, 9, 11, 0.12),
-    transparent 55%
+    rgba(255, 255, 255, 0.05),
+    transparent 52%
   );
-  mix-blend-mode: normal;
+  mix-blend-mode: screen;
+}
+
+.project-image-has-photo::after {
+  height: 48%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.47));
 }
 
 .project-image-has-photo img {
@@ -309,6 +314,24 @@ textarea {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  filter: brightness(1.08) contrast(1.02) saturate(1.04);
+}
+
+.project-image:not(.project-image-has-photo)::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 52%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 42px
+    );
+}
+
+.project-image:not(.project-image-has-photo)::after {
+  height: 48%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
 }
 
 .project-image-has-photo .thumb-label {
@@ -353,14 +376,14 @@ textarea {
 
 .thumb-08 {
   background:
-    radial-gradient(circle at 50% 50%, rgba(96, 165, 250, 0.28), transparent 26%),
-    linear-gradient(135deg, #0f1f2d, #111827 42%, #0a0a0a);
+    radial-gradient(circle at 50% 50%, rgba(96, 165, 250, 0.36), transparent 28%),
+    linear-gradient(135deg, #152a3f, #182030 42%, #121216);
 }
 
 .thumb-09 {
   background:
-    radial-gradient(circle at 22% 18%, rgba(45, 212, 191, 0.28), transparent 32%),
-    linear-gradient(135deg, #102222, #111827 45%, #09090b);
+    radial-gradient(circle at 22% 18%, rgba(45, 212, 191, 0.36), transparent 33%),
+    linear-gradient(135deg, #152b2b, #182030 45%, #121216);
 }
 
 .thumb-10 {

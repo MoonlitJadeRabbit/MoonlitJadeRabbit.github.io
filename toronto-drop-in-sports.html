@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Toronto Drop-In Finder: find drop-in sports at community centres near you — browser location or address, favourites, this week and next week."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Toronto Drop-In Finder | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="project-page portfolio-page">
+      <header class="portfolio-hero">
+        <a class="back-link back-link-ghost" href="index.html">Back to portfolio</a>
+
+        <p class="project-kicker">Personal project / Web</p>
+        <h1 class="project-page-title">Toronto Drop-In Finder</h1>
+
+        <p class="project-caption">
+          <i>
+            A single-page site that answers one question I kept asking every week:
+            where can I actually play badminton near me, on the day I am free, without
+            opening six different tabs?
+          </i>
+        </p>
+
+        <div class="project-facts">
+          <span class="fact-pill">Junye Zhou · solo build</span>
+          <span class="fact-pill">Node.js · React (esm.sh) · vanilla CSS</span>
+          <span class="fact-pill">City of Toronto open data</span>
+          <span class="fact-pill">
+            <a href="https://torontodropin.ca/" target="_blank" rel="noreferrer"
+              >torontodropin.ca</a
+            >
+          </span>
+          <span class="fact-pill">
+            <a
+              href="https://github.com/MoonlitJadeRabbit/toronto-drop-in"
+              target="_blank"
+              rel="noreferrer"
+              >GitHub</a
+            >
+          </span>
+        </div>
+      </header>
+
+      <figure class="portfolio-figure">
+        <img
+          src="assets/toronto-drop-in/homepage.png"
+          alt="Toronto Drop-In Finder homepage with location pin, week and sport filters, and community centre list sorted by distance"
+          width="1200"
+          height="800"
+          loading="eager"
+        />
+        <figcaption>
+          Homepage — optional address or “use my location,” this week / next week, day
+          and sport tabs, favourite centres, and session times sorted by distance.
+        </figcaption>
+      </figure>
+
+      <section class="project-copy" id="overview">
+        <h2 class="project-section-title">Overview</h2>
+
+        <p>
+          <strong>Toronto Drop-In Finder</strong> is a lightweight web app for browsing
+          drop-in sports at City of Toronto community centres. Allow your browser location
+          (or type an address if you prefer), pick a sport and a day, and the page shows
+          nearby centres sorted by distance with session times — no account, no map maze,
+          no digging through PDF schedules.
+        </p>
+
+        <p>
+          I built it because the official tools are spread out: the drop-in sports map
+          is useful but not built around “what is closest to me this Tuesday for
+          badminton?” I wanted something that felt more like checking the weather — open
+          the page, get an answer, leave.
+        </p>
+      </section>
+
+      <section class="project-copy" id="motivation">
+        <h2 class="project-section-title">Why I built it</h2>
+
+        <p>
+          I play badminton casually and I am often trying to fit a session between labs
+          or transit. Toronto publishes a lot of recreation data, but finding a session
+          still means jumping between the sports map, individual centre pages, and
+          sometimes guessing which week’s schedule is posted.
+        </p>
+
+        <p>
+          The friction is small every time, but it adds up — especially if you are new
+          to the city or you do not already know which community centre is “yours.” I
+          wanted a tool that respects how people actually search: <strong>near me</strong>,
+          <strong>this sport</strong>, <strong>this day</strong>.
+        </p>
+      </section>
+
+      <section class="project-copy" id="features">
+        <h2 class="project-section-title">Key features</h2>
+
+        <ul>
+          <li>
+            <strong>Browser location</strong> — asks for permission on load and sorts
+            centres nearest-first within 30&nbsp;km; a pin button retries if you blocked
+            it the first time
+          </li>
+          <li>
+            <strong>Optional address or postal code</strong> — overrides GPS when you type;
+            geocoded to Toronto with live re-sort as you type (Canadian postal codes
+            normalized, e.g. <code>M5V2T6</code> → <code>M5V 2T6</code>)
+          </li>
+          <li>
+            <strong>Favourite centres</strong> — star any centre to pin it to the top;
+            favourites stay visible even outside the 30&nbsp;km radius
+          </li>
+          <li>
+            <strong>Sport tabs</strong> — Badminton, Basketball, Volleyball, Pickleball,
+            and others; defaults to Badminton because that is what I use most
+          </li>
+          <li>
+            <strong>Day-of-week tabs</strong> — Mon–Sun with today highlighted
+          </li>
+          <li>
+            <strong>This week / Next week</strong> — calendar weeks, not just a rolling
+            seven-day window from one feed
+          </li>
+          <li>
+            <strong>Session details</strong> — time range, age group when available, and
+            status labels (available, full, cancelled, etc.)
+          </li>
+          <li>
+            <strong>Light mode by default</strong> — optional dark mode toggle; favourites
+            stored in <code>localStorage</code> on your device
+          </li>
+        </ul>
+
+        <figure class="portfolio-figure">
+          <img
+            src="assets/toronto-drop-in/demo.gif"
+            alt="Demo: location sorting, starring favourite centres, and switching day and sport filters on torontodropin.ca"
+            width="900"
+            height="1089"
+            loading="lazy"
+          />
+          <figcaption>
+            Browsing nearby drop-in badminton, starring centres, and switching days — on
+            torontodropin.ca.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="project-copy" id="technical">
+        <h2 class="project-section-title">Technical implementation</h2>
+
+        <div class="project-facts">
+          <span class="fact-pill">Node.js 18+ HTTP server</span>
+          <span class="fact-pill">React 18 (CDN / esm.sh)</span>
+          <span class="fact-pill">No npm build step</span>
+          <span class="fact-pill">JSON file cache</span>
+          <span class="fact-pill">Render + torontodropin.ca</span>
+          <span class="fact-pill">Bundled schedule seed</span>
+        </div>
+
+        <p>
+          The stack is intentionally boring: one <code>server.mjs</code> file serves the
+          frontend and a small REST API. There is no Webpack or Vite — React loads from
+          <code>esm.sh</code> as an ES module in the browser. That kept the project easy
+          to reason about and cheap to host.
+        </p>
+
+        <p>
+          <strong>How data gets in:</strong>
+        </p>
+
+        <ol>
+          <li>
+            On refresh, the server pulls centre locations from the City’s ArcGIS
+            drop-in sports layer
+          </li>
+          <li>
+            It merges schedule JSON from the city map feed <em>and</em> each facility’s
+            drop-in page (up to four calendar weeks — that is where “next week” actually
+            lives)
+          </li>
+          <li>
+            Everything is normalized into one event list and written to
+            <code>data/cache.json</code> locally; a committed
+            <code>data/cache.seed.json</code> snapshot ships with deploys
+          </li>
+          <li>
+            On Render cold start, the server copies the seed to
+            <code>cache.json</code> so schedules appear immediately, then refreshes in
+            the background
+          </li>
+          <li>
+            The frontend calls <code>GET /api/schedule</code> (with retry if the cache is
+            still warming) and filters client-side by week, weekday, sport, and distance
+          </li>
+        </ol>
+
+        <p>
+          <strong>How location works:</strong> by default the browser’s Geolocation API
+          supplies coordinates client-side — nothing is sent to my server unless you type
+          an address. Manual search goes through <code>/api/geocode</code> (OpenStreetMap
+          Nominatim, bounded to the GTA). The UI computes haversine distance to each
+          centre and hides rows outside 30&nbsp;km, except starred favourites. Sport and
+          day filters run on the cached events already in memory, so switching tabs feels
+          instant.
+        </p>
+
+        <pre><code>// Simplified flow
+Page load → browser geolocation (optional) → (lat, lng)
+  OR typed address → /api/geocode → (lat, lng)
+  → filter events by localDate, dayOfWeek, sport
+  → pin favourites to top; sort others by distance
+  → render list</code></pre>
+      </section>
+
+      <section class="project-copy" id="design">
+        <h2 class="project-section-title">Design decisions</h2>
+
+        <p>
+          I treated this as a <strong>single-page utility</strong>, not a product with
+          onboarding. The whole interaction model is visible at once: location field and
+          pin on top, week and day across the middle, sport tabs, then the list. No
+          hamburger menu, no nested settings.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Location-first, address optional</strong> — most people should get a
+            sorted list without typing; the address field is there when GPS is wrong or
+            blocked
+          </li>
+          <li>
+            <strong>Light mode default</strong> — matches how most people skim schedules
+            in daylight; dark mode is there if you want it
+          </li>
+          <li>
+            <strong>Live filtering</strong> — debounced geocode on address input; tab
+            switches are instant because filtering is client-side
+          </li>
+          <li>
+            <strong>Favourites without accounts</strong> — star a centre once; it stays
+            pinned on that device via <code>localStorage</code>
+          </li>
+          <li>
+            <strong>Hide empty centres</strong> — if a location has no matching sessions
+            for that day/sport/week, it does not clutter the list
+          </li>
+          <li>
+            <strong>Honest empty states</strong> — when the city has not posted next week
+            yet, the UI says so instead of looking broken
+          </li>
+        </ul>
+
+        <p>
+          The goal was always speed: fewer decisions between “I want to play” and “I know
+          where to go.”
+        </p>
+      </section>
+
+      <section class="project-copy" id="challenges">
+        <h2 class="project-section-title">Challenges &amp; learnings</h2>
+
+        <p>
+          <strong>Data is messier than the UI suggests.</strong> The sports map feed only
+          covers about a week ahead. Longer schedules sit on each centre’s facility page
+          behind a different JSON API. Merging those sources without duplicate sessions
+          took more care than I expected.
+        </p>
+
+        <p>
+          <strong>Time zones matter.</strong> Early versions used the browser’s default
+          <code>Date</code> methods and mis-labelled Sundays or “this week” boundaries.
+          Fixing that meant storing <code>localDate</code> in Toronto time and deriving
+          weekday from that string, not from UTC timestamps.
+        </p>
+
+        <p>
+          <strong>Deployment is part of the feature.</strong> Render’s free tier sleeps
+          after idle time and wipes disk on wake — so a full scrape on every cold start
+          would leave users staring at “Loading schedules…” for minutes. I bundled
+          <code>cache.seed.json</code> in the repo, copy it on boot, refresh in the
+          background, and retry from the client if the API is not ready yet. The app also
+          lives at <strong>torontodropin.ca</strong> (Cloudflare DNS → Render) instead of
+          only the default <code>.onrender.com</code> URL.
+        </p>
+
+        <p>
+          What I took away: scraping is not just “get JSON” — it is understanding what
+          each publisher actually means by “this week,” and designing the app so users
+          never feel that complexity.
+        </p>
+      </section>
+
+      <section class="project-copy" id="future">
+        <h2 class="project-section-title">Future improvements</h2>
+
+        <ul>
+          <li>
+            <strong>Map view</strong> — pins for centres with pop-up session lists
+          </li>
+          <li>
+            <strong>Real-time availability</strong> — tighter sync with “reserve a spot”
+            capacity where the city exposes it
+          </li>
+          <li>
+            <strong>PWA / installable app</strong> — add to home screen without an app
+            store
+          </li>
+          <li>
+            <strong>Notifications</strong> — “your sport is on tonight at the closest
+            centre” (email or push, not another app to install)
+          </li>
+          <li>
+            <strong>Beyond Toronto</strong> — same pattern for other municipalities if
+            their feeds are open
+          </li>
+        </ul>
+      </section>
+
+      <section class="project-copy" id="closing">
+        <h2 class="project-section-title">Closing note</h2>
+
+        <p>
+          This started as a weekend problem I had every week. It is not a startup pitch —
+          it is a tool I actually open before booking a court. If you are in Toronto and
+          you play drop-in sports, I hope the live version saves you a few minutes and a
+          bit of frustration.
+        </p>
+
+        <p>
+          <a href="https://torontodropin.ca/" target="_blank" rel="noreferrer"
+            >Try torontodropin.ca</a
+          >
+          ·
+          <a
+            href="https://github.com/MoonlitJadeRabbit/toronto-drop-in"
+            target="_blank"
+            rel="noreferrer"
+            >View source on GitHub</a
+          >
+        </p>
+      </section>
+
+      <a class="back-link" href="index.html">Back to portfolio</a>
+    </main>
+  </body>
+</html>

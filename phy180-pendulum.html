@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="PHY180 damped pendulum lab: video tracking in Tracker, five graphs, and uncertainty analysis by Junye Zhou."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>PHY180 Damped Pendulum | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="project-page portfolio-page">
+      <header class="portfolio-hero">
+        <a class="back-link back-link-ghost" href="index.html">Back to portfolio</a>
+
+        <p class="project-kicker">PHY180 / Classical Mechanics</p>
+        <h1 class="project-page-title">Damped Pendulum Lab</h1>
+
+        <p class="project-caption">
+          <i>
+            Build a real pendulum, film it at 60&nbsp;fps, track every swing in
+            Tracker, and see whether Prof.&nbsp;Wilson’s predictions survive your
+            error bars.
+          </i>
+        </p>
+
+        <div class="project-facts">
+          <span class="fact-pill">Junye Zhou · solo report</span>
+          <span class="fact-pill">October 28, 2025</span>
+          <span class="fact-pill">Tracker · iPhone · Python fits</span>
+          <span class="fact-pill">Q ≈ 109 (two methods agree)</span>
+        </div>
+      </header>
+
+      <section class="project-copy" id="overview">
+        <h2 class="project-section-title">What this was</h2>
+
+        <p>
+          PHY180’s pendulum project is a full lab report, not a single number at
+          the end. I built a damped pendulum, recorded its motion, and produced
+          five analyses the course asked for: angle dependence of the period,
+          amplitude decay (and Q factor vs time), length vs period (power law and
+          log–log), and length vs Q factor. The write-up below follows the report I
+          submitted; the graphs and numbers are the ones I actually fit to data.
+        </p>
+
+        <p>
+          The setup was deliberately low-tech: a 500&nbsp;mL water bottle as the
+          bob, two folded “sewing strings” over a clip hanger so the swing stayed
+          in one plane, and lengths from about 15&nbsp;cm to 52&nbsp;cm measured
+          to the clip. For angle sweeps I timed periods by hand; for everything
+          else I leaned on video and
+          <a href="https://physlets.org/tracker/" target="_blank" rel="noreferrer">OSP Tracker</a>
+          so reaction time was not fighting the physics.
+        </p>
+
+        <figure class="portfolio-figure video-figure">
+          <div class="video-wrapper gif-wrapper">
+            <img
+              class="scroll-gif"
+              src="assets/phy180-pendulum/pendulum-demo-poster.jpg"
+              data-gif="assets/phy180-pendulum/pendulum-demo.gif"
+              data-poster="assets/phy180-pendulum/pendulum-demo-poster.jpg"
+              alt="Damped pendulum oscillating"
+              width="720"
+              height="405"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            Damped oscillation clip (iPhone, 60&nbsp;fps) — loops when you scroll
+            to it; full video used for Tracker analysis.
+          </figcaption>
+        </figure>
+
+        <div
+          class="figure-grid two-up"
+          data-gallery-label="Setup and angle study"
+        >
+          <figure class="portfolio-figure">
+            <img
+              src="assets/phy180-pendulum/report-p2-img1.jpeg"
+              alt="Side view of the pendulum setup with plastic bottle mass"
+              loading="lazy"
+            />
+            <figcaption>
+              Side camera view: bottle mass on dual strings over a clip hanger
+              (Fig.&nbsp;1).
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <img
+              src="assets/phy180-pendulum/report-p3-img2.png"
+              alt="Period versus initial release angle with quadratic fit"
+              loading="lazy"
+            />
+            <figcaption>
+              Period vs release angle — quadratic fit with
+              T<sub>0</sub> = 1.523 ± 0.004&nbsp;s (Fig.&nbsp;3).
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="method">
+        <h2 class="project-section-title">How I measured it</h2>
+
+        <p>
+          Videos were shot on an iPhone at 60&nbsp;Hz, rested on dumbbells so the
+          bob and camera shared a height (less parallax), then trimmed in
+          Clipchamp and exported at 1080p. In Tracker I calibrated with a metre
+          stick, set axes, and auto-tracked a consistent feature on the bottle —
+          not the whole label, or the centre of mass wanders and your angles get
+          noisy.
+        </p>
+
+        <p>
+          For length vs period I used eight lengths and three trials each, always
+          releasing near θ<sub>0</sub> = π/6 as checked in Tracker. Q vs length
+          reused that release angle. The angle-dependence block used a stopwatch
+          for one full cycle per angle from −90° to +90° in 10° steps (five
+          repeats each), which is where human reaction time (~2.0 ± 0.2&nbsp;s in
+          my stopwatch test) becomes an honest limitation in the discussion.
+        </p>
+      </section>
+
+      <section class="project-copy" id="results">
+        <h2 class="project-section-title">Results that mattered</h2>
+
+        <p>
+          <strong>Amplitude decay.</strong> The angle vs time trace fit the damped
+          cosine model with τ = 57.41 ± 0.04&nbsp;s and T = 1.65 ± 0.01&nbsp;s.
+          From that, method&nbsp;1 gave Q = 109.3 ± 0.7; counting swings down to
+          e<sup>−π/2</sup> ≈ 20% of the initial amplitude (method&nbsp;2) gave
+          Q = 109 ± 1 across three trials — inside each other’s uncertainties.
+        </p>
+
+        <figure class="portfolio-figure">
+          <img
+            src="assets/phy180-pendulum/report-p4-img1.png"
+            alt="Angle versus time with damped cosine fit and exponential envelope"
+            loading="lazy"
+          />
+          <figcaption>
+            Angle vs time with cosine fit and exponential envelope (Fig.&nbsp;4).
+          </figcaption>
+        </figure>
+
+        <p>
+          <strong>Length vs period.</strong> A power law T = kL<sup>n</sup> gave
+          k = 2.17 ± 0.03 and n = 0.42 ± 0.01 (R² = 0.95). Theory expects
+          k ≈ 2 and n = 0.5; my n was about 16% off and not within uncertainty,
+          which I attributed mostly to how length and release angle were set — not
+          a bad fit line, but a systematic offset worth saying out loud.
+        </p>
+
+        <div
+          class="figure-grid two-up"
+          data-gallery-label="Length and Q factor plots"
+        >
+          <figure class="portfolio-figure">
+            <img
+              src="assets/phy180-pendulum/report-p5-img1.png"
+              alt="Period versus length power-law fit"
+              loading="lazy"
+            />
+            <figcaption>
+              Period vs length — power-law best fit (Fig.&nbsp;5).
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <img
+              src="assets/phy180-pendulum/report-p6-img1.png"
+              alt="Q factor versus length with cubic fit"
+              loading="lazy"
+            />
+            <figcaption>
+              Q vs length — cubic fit, R² = 0.87 (Fig.&nbsp;7). Wilson had no
+              fixed prediction here; the curve still looked real for this setup.
+            </figcaption>
+          </figure>
+        </div>
+
+        <p>
+          <strong>Angle vs period.</strong> A full quadratic fit had
+          C = 0.042 ± 0.003 (clearly not zero), while B = 0.001 ± 0.002 was
+          consistent with zero — the symmetry argument from class. In a small-angle
+          window the graph flattens toward T(θ) ≈ T<sub>0</sub>, which is how I
+          reconciled my data with Wilson’s “no dependence” story without ignoring
+          the curvature at large θ.
+        </p>
+      </section>
+
+      <section class="project-copy" id="python">
+        <h2 class="project-section-title">Python analysis</h2>
+
+        <p>
+          Tracker exports tab-separated tables (time, angle, uncertainties). I
+          kept the analysis scripts in a local
+          <code>PHY180 assets</code> folder next to those files — the same layout
+          as on
+          <a
+            href="https://github.com/MoonlitJadeRabbit/MoonlitJadeRabbit.github.io/tree/main/PHY180%20assets"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+          if you want to read the full source. Below is what each script does; two
+          files overlap on ring-down fitting (noted in the table).
+        </p>
+
+        <div class="script-table-wrap">
+          <table class="script-table">
+            <thead>
+              <tr>
+                <th scope="col">Script</th>
+                <th scope="col">Report section</th>
+                <th scope="col">What it does</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>fit_black_box.py</code></td>
+                <td>Angle vs period (Fig.&nbsp;3)</td>
+                <td>
+                  Adapted from Prof.&nbsp;Wilson’s
+                  <code>black_box_fit.py</code>: loads four-column data, fits
+                  <em>T</em>(θ) = <em>a</em> + <em>b</em>θ + <em>c</em>θ² with
+                  weighted <code>curve_fit</code>, prints parameters with
+                  uncertainties, χ², correlation matrix, and saves the fit plot.
+                </td>
+              </tr>
+              <tr>
+                <td><code>run_ringdown_with_bb.py</code></td>
+                <td>Amplitude decay / Q (Fig.&nbsp;4)</td>
+                <td>
+                  Main ring-down script. Aligns data to the first peak, fits a
+                  damped cosine, inflates parameter errors using reduced χ²,
+                  derives <em>T</em> and <em>Q</em> = πτ/<em>T</em>, and plots the
+                  red cosine plus a green envelope from the <em>same</em> fit
+                  (not a separate envelope fit).
+                </td>
+              </tr>
+              <tr>
+                <td><code>Qfactor.py</code></td>
+                <td>Same as above</td>
+                <td>
+                  <strong>Earlier duplicate.</strong> Same damped-cosine model and
+                  <code>fit_black_box</code> loader, but delegates plotting to
+                  <code>bb.plot_fit</code> instead of the custom two-panel figure.
+                  I kept <code>run_ringdown_with_bb.py</code> for the report
+                  graphics.
+                </td>
+              </tr>
+              <tr>
+                <td><code>run_length_vs_period_powerlaw.py</code></td>
+                <td>Length vs period (Fig.&nbsp;5)</td>
+                <td>
+                  Fits <em>T</em> = <em>kL<sup>n</sup></em> with errors on
+                  <em>T</em>, prints <em>k</em>, <em>n</em>, R², reduced χ², and
+                  theory reference <em>k</em> = 2π/√<em>g</em>. Produces the
+                  linear plot with residuals and a log–log view.
+                </td>
+              </tr>
+              <tr>
+                <td><code>plot_L_vs_Q.py</code></td>
+                <td>Length vs Q (Fig.&nbsp;7)</td>
+                <td>
+                  In <code>Qfactor Videos For Different Lengths/</code>. Cubic
+                  fit <em>Q</em>(<em>L</em>) = <em>a</em> + <em>bL</em> + … with
+                  optional weighting (default unweighted so a single tight d<em>Q</em>
+                  does not dominate). Reads <code>LQ_data.txt</code> built from
+                  per-length ring-down runs.
+                </td>
+              </tr>
+              <tr>
+                <td><code>print_tau.py</code></td>
+                <td>Q vs length (supporting)</td>
+                <td>
+                  Batch helper: fits each <code>ringdown_t_theta.txt</code>,
+                  prints τ only, and writes
+                  <code>ringdown_t_theta_with_cycles.txt</code> with a cycle index
+                  column for method&nbsp;2 (counting swings to
+                  e<sup>−π/2</sup> amplitude).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="project-subsection-title">Shared model (ring-down)</h3>
+
+        <p>
+          Every ring-down script uses the same offset plus exponentially decaying
+          cosine — the fit that produced τ = 57.41&nbsp;s and
+          <em>Q</em> ≈ 109 on the page:
+        </p>
+
+        <div class="code-snippet">
+          <pre>θ(t) = C + A · exp(−t/τ) · cos(ωt + φ)
+
+T = 2π/ω
+Q = π · τ / T</pre>
+        </div>
+
+        <p>
+          Initial guesses come from the median offset, zero-crossing period, and
+          a log-linear slope through peak amplitudes so
+          <code>scipy.optimize.curve_fit</code> converges reliably on noisy
+          Tracker exports.
+        </p>
+
+        <h3 class="project-subsection-title">Workflow</h3>
+
+        <p>
+          <strong>1.</strong> Export from Tracker → <code>*.txt</code> (four
+          columns where uncertainties exist).<br />
+          <strong>2.</strong> Run the script for that analysis block (double-click
+          on Windows opens a plot and prints fit parameters in the terminal).<br />
+          <strong>3.</strong> Paste printed values (and matplotlib figures) into
+          the lab report. ChatGPT helped adapt Wilson’s plotting boilerplate for
+          <code>fit_black_box.py</code>; the models, data, and fits are mine.
+        </p>
+      </section>
+
+      <section class="project-copy" id="takeaways">
+        <h2 class="project-section-title">What I’d do differently</h2>
+
+        <p>
+          The report’s appendix is explicit: two Type&nbsp;B issues dominated.
+          Sixty frames per second caps time resolution at ~0.008&nbsp;s per half
+          frame; a 240&nbsp;fps camera would shrink that. Tracking the blue label
+          instead of a fixed point added roughly ±0.01&nbsp;rad — next time I’d
+          track the white cap on a plain background so Tracker stops hunting the
+          wrong pixel.
+        </p>
+
+        <p>
+          The Python section above lists every script and which figure it fed.
+          ChatGPT helped adapt Wilson’s <code>black_box_fit.py</code> into
+          <code>fit_black_box.py</code>; the prompts and limits are in the report
+          appendix. The physics, data, and fits are mine.
+        </p>
+
+        <p>
+          If you want every equation, appendix derivation, and table, that’s all
+          in the PDF I submitted — this page is the version I’d use to explain the
+          project in five minutes.
+        </p>
+      </section>
+
+      <a class="back-link" href="index.html">Back</a>
+    </main>
+
+    <script src="reference-gallery.js"></script>
+    <script src="image-lightbox.js"></script>
+    <script src="scroll-gif.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+---
+description: Auto pull from GitHub before editing; commit/push only when asked
+alwaysApply: true
+---
+
+# Git sync (two computers)
+
+This repo syncs through GitHub (`MoonlitJadeRabbit.github.io`).
+
+**Before editing:** run `git pull origin main --rebase` (or `.\scripts\sync-github.ps1 -Action Pull`). Cursor hooks also pull on new messages.
+
+**Do not auto-commit or auto-push.** Only commit and push when the user explicitly asks (e.g. "commit and push").
+
+If pull fails (offline, merge conflict), say so briefly and do not force-push.

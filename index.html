@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Junye Zhou — Computer Engineering student at UofT. Projects, writeups, and things I make."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Portfolio | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container" id="top">
+      <!-- Top intro area: profile, social links, and short personal summary -->
+      <section class="hero">
+        <div class="heading-container">
+          <!-- Name + profile image block -->
+          <a class="identity" href="#top" aria-label="Junye home">
+            <img
+              class="avatar-image"
+              src="https://images.stockcake.com/public/5/b/0/5b07a1c9-6c01-4911-bedc-8a0e223529ed_large/moonlit-rabbit-gathering-stockcake.jpg"
+              alt="Junye profile picture"
+            />
+            <div class="identity-copy">
+              <h1>Junye</h1>
+              <p>Engineering projects</p>
+            </div>
+          </a>
+
+          <!-- Social icons shown beside the profile on desktop -->
+          <div class="social-links" aria-label="Social links">
+            <a
+              class="social-link"
+              href="mailto:junye.zhou@mail.utoronto.ca"
+              aria-label="Email"
+            >
+              <!-- Email icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"></path>
+                <path d="M3 7l9 6 9-6"></path>
+              </svg>
+              <span class="sr-only">Email</span>
+            </a>
+            <a
+              class="social-link"
+              href="https://github.com/MoonlitJadeRabbit"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <!-- GitHub icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.9a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19.1 4.77 5.07 5.07 0 0 0 19 1s-1.18-.35-4 1.48a13.38 13.38 0 0 0-6 0C6.18.65 5 1 5 1a5.07 5.07 0 0 0-.1 3.77A5.44 5.44 0 0 0 3.5 8.5c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.1V22"
+                ></path>
+              </svg>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/junye-zhou-5ab895367/"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <!-- LinkedIn icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4m0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
+                <path d="M8 11v5"></path>
+                <path d="M8 8v.01"></path>
+                <path d="M12 16v-5"></path>
+                <path d="M16 16v-3a2 2 0 0 0-4 0"></path>
+              </svg>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a
+              class="social-link"
+              href="https://www.instagram.com/vwrrwea/?next=%2F"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <!-- Instagram icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3c2.8 0 3.15.01 4.24.06 1.17.05 1.97.24 2.43.42.61.24 1.04.52 1.5.98.46.46.74.89.98 1.5.18.46.37 1.26.42 2.43.05 1.09.06 1.44.06 4.24s-.01 3.15-.06 4.24c-.05 1.17-.24 1.97-.42 2.43-.24.61-.52 1.04-.98 1.5-.46.46-.89.74-1.5.98-.46.18-1.26.37-2.43.42-1.09.05-1.44.06-4.24.06s-3.15-.01-4.24-.06c-1.17-.05-1.97-.24-2.43-.42a4.01 4.01 0 0 1-1.5-.98 4.01 4.01 0 0 1-.98-1.5c-.18-.46-.37-1.26-.42-2.43C2.01 15.15 2 14.8 2 12s.01-3.15.06-4.24c.05-1.17.24-1.97.42-2.43.24-.61.52-1.04.98-1.5.46-.46.89-.74 1.5-.98.46-.18 1.26-.37 2.43-.42C8.85 3.01 9.2 3 12 3Z"
+                ></path>
+                <path d="M12 7.5A4.5 4.5 0 1 0 12 16.5A4.5 4.5 0 1 0 12 7.5Z"></path>
+                <path d="M17.5 6.5h.01"></path>
+              </svg>
+              <span class="sr-only">Instagram placeholder</span>
+            </a>
+          </div>
+        </div>
+
+        <p class="intro-copy">
+          Hi there. I'm a Computer Engineering student at UofT. This site is
+          just a simple place for me to document the things I make that I found
+          interesting.
+        </p>
+
+        <p class="intro-copy">
+          Outside of school and projects, I like to keep things balanced. I love
+          playing video games, going on hikes, biking, and running. I also spend
+          a lot of my free time at community centers playing drop-in
+          badminton and meeting new people. Thanks for stopping by.
+        </p>
+
+        <p class="intro-credit">
+          This site was inspired by
+          <a href="https://www.vkhouri.dev/" target="_blank" rel="noreferrer"
+            >vkhouri.dev</a
+          >
+          by Vaughn Khouri.
+        </p>
+
+        <p class="intro-copy">
+          Want to chat? Email me at
+          <span class="underline-text">junye.zhou@mail.utoronto.ca</span>
+          or <a href="#contact">contact me.</a> For skills and work experience,
+          a resume link can live
+          <a href="junyezhou-resume.pdf" target="_blank" rel="noreferrer">here.</a>
+        </p>
+      </section>
+
+      <section class="category">
+        <h2 class="section-title">University Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/toronto-drop-in/thumb.png"
+                  alt="Toronto Drop-In Finder app icon"
+                  width="512"
+                  height="512"
+                  loading="lazy"
+                />
+                <span class="thumb-label">Drop-In Finder</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="toronto-drop-in-sports.html">
+                <h3 class="project-title">Toronto Drop-In Finder</h3>
+              </a>
+              <p>
+                Web app at torontodropin.ca for drop-in sports around Toronto.
+                Pick a location, save your favourite centres, and browse sessions
+                from City open data.
+              </p>
+              <a class="read-more" href="toronto-drop-in-sports.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/year1-design-log-thumb.png"
+                  alt="Year One Design Log personal statement collage with Praxis showcase photos"
+                  width="1200"
+                  height="646"
+                  loading="lazy"
+                />
+                <span class="thumb-label">Design log</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="year1-student-engineering-design-portfolio.html">
+                <h3 class="project-title">Year One Design Log</h3>
+              </a>
+              <p>
+                My first year design portfolio. Praxis studios, the CIV102 bridge,
+                and reflections from Alpha Release through showcase.
+              </p>
+
+              <a
+                class="read-more"
+                href="year1-student-engineering-design-portfolio.html"
+              >
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/civ102-bridge/team-highway-102.png"
+                  alt="Team 602 with the completed Highway 102 matboard bridge"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                />
+                <span class="thumb-label">CIV102 Bridge</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="civ102-matboard-bridge.html">
+                <h3 class="project-title">CIV102 Matboard Bridge (Team 602)</h3>
+              </a>
+              <p>
+                Team 602 matboard bridge for CIV102. We placed first in our cohort
+                and second in EngSci. Lots of Python, prototyping, and glue.
+              </p>
+              <a class="read-more" href="civ102-matboard-bridge.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/phy180-pendulum/report-p2-img1.jpeg"
+                  alt="PHY180 damped pendulum setup with bottle bob"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                />
+                <span class="thumb-label">PHY180 Pendulum</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="phy180-pendulum.html">
+                <h3 class="project-title">Every Swing Counted</h3>
+              </a>
+              <p>
+                Solo pendulum lab for PHY180. Filmed at 60 fps, tracked in Tracker,
+                and fit five analyses on period, damping, and Q factor.
+              </p>
+              <a class="read-more" href="phy180-pendulum.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/stl-robotics-rfp/parts-off-the-floor-thumb.png"
+                  alt="Bolts, washers, and VEX hardware scattered on a portable classroom floor"
+                  width="487"
+                  height="399"
+                  loading="lazy"
+                />
+                <span class="thumb-label">STLR RFP</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="stl-robotics-rfp.html">
+                <h3 class="project-title">Parts Off the Floor</h3>
+              </a>
+              <p>
+                Praxis II RFP with St. Theresa of Lisieux VEX teams. Collect loose
+                parts from under the portables and sort the metal hardware so it
+                gets reused instead of tossed.
+              </p>
+              <a class="read-more" href="stl-robotics-rfp.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/praxis-zipline/showcase-card.jpg"
+                  alt="Team 7 at the Praxis II showcase with the Zipline Variable Resistance System poster"
+                  width="1024"
+                  height="768"
+                  loading="lazy"
+                />
+                <span class="thumb-label">Zipline Showcase</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="praxis-zipline-showcase.html">
+                <h3 class="project-title">Variable Swim Drag</h3>
+              </a>
+              <p>
+                Praxis II project for MSSAC swim training. A capstan shuttle with
+                8 resistance levels, requirement tables, and dry land tow testing.
+              </p>
+              <a class="read-more" href="praxis-zipline-showcase.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/praxis-i-design/team-presentation-card.png"
+                  alt="Team 1L presenting Improving Chestnut Double Room Sleeping Environments with bed dome model and poster"
+                  width="615"
+                  height="486"
+                  loading="lazy"
+                />
+                <span class="thumb-label">Praxis I</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="praxis-i-design.html">
+                <h3 class="project-title">The Bed Dome</h3>
+              </a>
+              <p>
+                Praxis I Alpha Release for Chestnut double rooms. Four concepts,
+                proxy lux testing with a lamp cover, and a foldable bed dome.
+              </p>
+              <a class="read-more" href="praxis-i-design.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="category">
+        <h2 class="section-title">Archive</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/day-logs/first-year-engsci/first-year-engsci-thumb.png"
+                  alt="Notebook sketch overview of first year Engineering Science"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                />
+                <span class="thumb-label">Overview</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="first-year-engsci.html">
+                <h3 class="project-title">First Year EngSci</h3>
+              </a>
+              <p>
+                Space for Year 1 notes and advice. Mostly a placeholder until I
+                write it out properly.
+              </p>
+              <a class="read-more" href="first-year-engsci.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image project-image-has-photo">
+                <img
+                  src="assets/day-logs/brick-by-brick/brick-by-brick-poster.jpg"
+                  alt="LEGO stop-motion scene from Brick by Brick"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                />
+                <span class="thumb-label">Stop motion</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="brick-by-brick.html">
+                <h3 class="project-title">Brick by Brick</h3>
+              </a>
+              <p>
+                Grade 10 LEGO stop motion for Mr. Shalaby's graphical communication
+                class. I moved the bricks, took a photo, and repeated until it
+                played back as a short film.
+              </p>
+              <a class="read-more" href="brick-by-brick.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image thumb-08">
+                <span class="thumb-label">Photo study</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="one-object-photo-study.html">
+                <h3 class="project-title">One-Object Photo Study</h3>
+              </a>
+              <p>
+                Same object, same time, every day until Labor Day. Then turn the
+                stack into a flipbook or timelapse. Still collecting frames.
+              </p>
+              <a class="read-more" href="one-object-photo-study.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-image-wrapper">
+              <div class="project-image thumb-09">
+                <span class="thumb-label">Archive Bot</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <a href="telegram-video-archive-bot.html">
+                <h3 class="project-title">Telegram Video Archive Bot</h3>
+              </a>
+              <p>
+                Personal Telegram bot. Forward a video and it saves to a private
+                channel with SQLite tags. Cursor wrote most of it. I prompted and
+                tested.
+              </p>
+              <a class="read-more" href="telegram-video-archive-bot.html">
+                Read more
+                <svg viewBox="0 0 14 10" aria-hidden="true">
+                  <path d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact form near the bottom of the page -->
+      <section class="contact-section" id="contact">
+        <div class="contact-wrap">
+          <h2 class="section-title contact-title">Contact Me</h2>
+
+          <p class="contact-lead">
+            Send a message below, or email me at
+            <a href="mailto:junye.zhou@mail.utoronto.ca"
+              >junye.zhou@mail.utoronto.ca</a
+            >.
+          </p>
+
+          <form id="my-form" class="contact-form" method="post">
+            <p class="form-honey" aria-hidden="true">
+              <label
+                >Leave this empty<input
+                  type="text"
+                  name="_honey"
+                  tabindex="-1"
+                  autocomplete="off"
+              /></label>
+            </p>
+            <div class="form-field">
+              <label for="email">Your email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="message">Your message</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="6"
+                placeholder="What would you like to say?"
+                required
+              ></textarea>
+            </div>
+
+            <div class="contact-actions">
+              <button id="my-form-button" type="submit" class="submit-button">
+                Send message
+              </button>
+              <a
+                class="contact-mailto-link"
+                href="mailto:junye.zhou@mail.utoronto.ca?subject=Message%20from%20portfolio"
+                >Email me directly</a
+              >
+            </div>
+            <p
+              id="my-form-status"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+
+        <!-- Matching social icons shown again in the footer area -->
+        <div class="footer-socials">
+          <div class="social-links" aria-label="Footer social links">
+            <a
+              class="social-link"
+              href="mailto:junye.zhou@mail.utoronto.ca"
+              aria-label="Email"
+            >
+              <!-- Email icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"></path>
+                <path d="M3 7l9 6 9-6"></path>
+              </svg>
+              <span class="sr-only">Email</span>
+            </a>
+            <a
+              class="social-link"
+              href="https://github.com/MoonlitJadeRabbit"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <!-- GitHub icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.9a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19.1 4.77 5.07 5.07 0 0 0 19 1s-1.18-.35-4 1.48a13.38 13.38 0 0 0-6 0C6.18.65 5 1 5 1a5.07 5.07 0 0 0-.1 3.77A5.44 5.44 0 0 0 3.5 8.5c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.1V22"
+                ></path>
+              </svg>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/junye-zhou-5ab895367/"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <!-- LinkedIn icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4m0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
+                <path d="M8 11v5"></path>
+                <path d="M8 8v.01"></path>
+                <path d="M12 16v-5"></path>
+                <path d="M16 16v-3a2 2 0 0 0-4 0"></path>
+              </svg>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a
+              class="social-link"
+              href="https://www.instagram.com/vwrrwea/?next=%2F"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <!-- Instagram icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3c2.8 0 3.15.01 4.24.06 1.17.05 1.97.24 2.43.42.61.24 1.04.52 1.5.98.46.46.74.89.98 1.5.18.46.37 1.26.42 2.43.05 1.09.06 1.44.06 4.24s-.01 3.15-.06 4.24c-.05 1.17-.24 1.97-.42 2.43-.24.61-.52 1.04-.98 1.5-.46.46-.89.74-1.5.98-.46.18-1.26.37-2.43.42-1.09.05-1.44.06-4.24.06s-3.15-.01-4.24-.06c-1.17-.05-1.97-.24-2.43-.42a4.01 4.01 0 0 1-1.5-.98 4.01 4.01 0 0 1-.98-1.5c-.18-.46-.37-1.26-.42-2.43C2.01 15.15 2 14.8 2 12s.01-3.15.06-4.24c.05-1.17.24-1.97.42-2.43.24-.61.52-1.04.98-1.5.46-.46.89-.74 1.5-.98.46-.18 1.26-.37 2.43-.42C8.85 3.01 9.2 3 12 3Z"
+                ></path>
+                <path d="M12 7.5A4.5 4.5 0 1 0 12 16.5A4.5 4.5 0 1 0 12 7.5Z"></path>
+                <path d="M17.5 6.5h.01"></path>
+              </svg>
+              <span class="sr-only">Instagram placeholder</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="contact-config.js"></script>
+    <script src="script.js?v=7"></script>
+  </body>
+</html>

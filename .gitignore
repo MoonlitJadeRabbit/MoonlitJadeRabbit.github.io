@@ -1,0 +1,31 @@
+# Local dev helpers (not served)
+scripts/
+.cursor/hooks/.last-pull
+
+
+# Unused PHY180 source video (site uses pendulum-demo.gif); was Git LFS
+assets/phy180-pendulum/pendulum-demo.mov
+
+# PHY180 lab folder: keep scripts on GitHub; skip huge raw media/data
+PHY180 assets/**/*.MOV
+PHY180 assets/**/*.mov
+PHY180 assets/**/*.mp4
+PHY180 assets/**/*.pdf
+PHY180 assets/**/*.zip
+PHY180 assets/**/*.xlsx
+PHY180 assets/**/*.trz
+PHY180 assets/**/__pycache__/
+PHY180 assets/images/
+PHY180 assets/videos/
+PHY180 assets/ringdown_data*.txt
+
+# PDF text extracts used while writing (not linked on the site)
+assets/**/*.txt
+
+# Unused source photos
+*.HEIC
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini

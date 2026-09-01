@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Praxis II Showcase: Zipline Variable Resistance System for MSSAC swim training, Team 7 Beta Release through showcase."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Praxis II Zipline Showcase | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="project-page portfolio-page">
+      <header class="portfolio-hero">
+        <a class="back-link back-link-ghost" href="index.html">Back to portfolio</a>
+
+        <p class="project-kicker">Praxis II / Beta Release &amp; Showcase</p>
+        <h1 class="project-page-title">Zipline Variable Resistance System</h1>
+
+        <p class="project-caption">
+          <i>
+            A pool length rope, a capstan shuttle, and eight resistance levels for
+            swimmers who need to change load in seconds, not minutes.
+          </i>
+        </p>
+
+        <div class="project-facts">
+          <span class="fact-pill">Team 7: Grant Liang, Sean Ding, Nathan Xia, Junye Zhou</span>
+          <span class="fact-pill">Partner: Mississauga Aquatic Club (MSSAC)</span>
+          <span class="fact-pill">RFP: variable swim resistance</span>
+          <span class="fact-pill">8 levels · 60 to 170 N · ~3 s adjustment</span>
+        </div>
+      </header>
+
+      <section class="project-copy" id="overview">
+        <h2 class="project-section-title">What this project was</h2>
+
+        <p>
+          Praxis II ended in a showcase, not a single PDF drop. Our team spent
+          Beta Release comparing four very different ways to add resistance in
+          the water, then converged on a zipline style shuttle that uses the
+          capstan equation: wrap angle on a drum sets how hard it is to pull the
+          main rope. The one pager and poster below are what we brought to
+          showcase night. The longer Beta Release documents capture how we got
+          there, including requirements tables, material Pugh charts, and test
+          plans.
+        </p>
+
+        <p>
+          The opportunity came from the Mississauga Aquatic Club. Coaches want
+          granular, quick switching resistance during sets. Drag socks, parachutes,
+          and other tools work, but they often cap out at a few coarse settings.
+          Our job was to show a credible path to many integrated levels in one
+          device that stays safe near a pool (no electricity over the water) and
+          fits in existing storage.
+        </p>
+
+        <figure class="portfolio-figure">
+          <div class="portfolio-figure-media">
+            <img
+              src="assets/praxis-zipline/showcase-poster.png"
+              alt="Showcase poster for the Zipline Variable Resistance System"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            Showcase poster: opportunity, mechanism, verification summary, and
+            next steps (Team 7).
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="project-copy" id="beta-arc">
+        <h2 class="project-section-title">From four concepts to one direction</h2>
+
+        <p>
+          Early Beta Release work treated resistance as an open question. We
+          sketched and prototyped a zipline capstan shuttle, a parachute with
+          adjustable area, a spool system inspired by rowing machines, and a
+          skirt that changes drag in the water. They were represented at different
+          fidelities on purpose: some had physical builds, some had CAD and
+          animation, some were still paper sketches. Pairwise comparison and
+          Toulmin style arguments helped us drop ideas that failed safety or
+          functionality before we over invested.
+        </p>
+
+        <p>
+          The zipline direction won because it could hit the requirement spread
+          without pumping water in and out mid practice, and because the physics
+          scaled cleanly with a dial. Nathan and Grant pushed hard on CAD and
+          mechanism layout. Sean and I spent a lot of time on documentation,
+          verification planning, and tying numbers back to the updated
+          requirement tables.
+        </p>
+
+        <div
+          class="reference-gallery"
+          data-reference-gallery
+          tabindex="0"
+          aria-roledescription="carousel"
+          aria-label="Beta Release concept sketches"
+        >
+          <div class="reference-gallery-toolbar">
+            <p class="reference-gallery-label">Beta concepts (diverging)</p>
+            <p class="reference-gallery-counter" data-gallery-counter>1 / 4</p>
+          </div>
+
+          <div class="reference-gallery-frame">
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-prev
+              aria-label="Previous concept"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 6l-6 6 6 6"></path>
+              </svg>
+            </button>
+
+            <div class="reference-gallery-viewport">
+              <figure class="reference-gallery-slide is-active">
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/year1-portfolio/img-033.png"
+                    alt="Zipline capstan concept"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Zipline capstan concept.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/year1-portfolio/img-029.png"
+                    alt="Parachute resistance concept"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Parachute functionality concept.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/year1-portfolio/img-031.png"
+                    alt="Skirt drag concept"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Skirt concept.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/year1-portfolio/img-027.png"
+                    alt="Rowing machine inspired spool concept"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Rowing machine inspired spool concept.</figcaption>
+              </figure>
+            </div>
+
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-next
+              aria-label="Next concept"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6l6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="project-copy" id="mechanism">
+        <h2 class="project-section-title">How the shuttle works</h2>
+
+        <p>
+          A support rope spans the lane and clips to existing lane rope hardware.
+          Each swimmer attaches with a short tether to the resistance shuttle. Inside
+          the shuttle, a guide roller sets how much rope wraps on the capstan drum.
+          A one way gear and resistance lock let the coach or swimmer pick a level
+          from 1 to 8 without re rigging the whole lane. Larger wrap angle means more
+          friction from the capstan equation, so the same pull produces more
+          opposing force.
+        </p>
+
+        <p>
+          In symbols, the resisting force scales with hold tension and wrap angle
+          through the exponential capstan relation. That is why a mechanical dial
+          can produce many distinct levels even though the hardware stays compact.
+        </p>
+
+        <div class="figure-grid two-up">
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-zipline/resistance-shuttle-cad.png?v=4"
+                alt="CAD render of the resistance shuttle mechanism with rope path"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              CAD of the shuttle: rope path, one way gear, and capstan drum.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-zipline/beta4-p9-img1.jpeg"
+                alt="Prototype testing setup for resistance measurement"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Tow style testing sketch for resistance measurement verification.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="testing">
+        <h2 class="project-section-title">Testing</h2>
+
+        <p>
+          Showcase was coming up and we needed pull numbers, not just capstan
+          math on paper. Our dry land setup mimicked a lane rope across the
+          pool: two people held opposite ends of the rope to keep tension steady,
+          someone in the middle pulled the shuttle from one end to the other at
+          each resistance level, and a fourth person (usually out of frame)
+          recorded the gauge readings.
+        </p>
+
+        <p>
+          We did not test in the water, which was unfortunate. The original plan
+          was a self built pool or even a bathtub setup so we could run the same
+          rig with actual drag before showcase. That never came together.
+          Everything in the photos below is from those indoor sessions. The
+          levels tracked consistently, but we never got the in water check we
+          had sketched early on.
+        </p>
+
+        <div
+          class="figure-grid three-up"
+          data-gallery-label="Resistance testing"
+        >
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-zipline/testing/tow-line-pull.png"
+                alt="Team members pulling on lane-length rope during dry-land resistance testing"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Two people on the rope ends holding lane tension. The person in
+              the middle tows the shuttle across while someone else logs the
+              readings off camera.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-zipline/testing/shuttle-capstan-closeup.png"
+                alt="Close-up of 3D-printed shuttle capstan drum and ratchet mechanism"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Inside the printed shuttle: wrap on the drum and the one way
+              ratchet we kept iterating on.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-zipline/testing/bench-resistance-check.png"
+                alt="Resistance check with shuttle on rope and force gauge on bench"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Middle puller on the shuttle, resistance level dialed. The fourth
+              teammate at the bench recorded force at each setting.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="requirements">
+        <h2 class="project-section-title">Requirements we held ourselves to</h2>
+
+        <p>
+          Our showcase work updated several objectives beyond the original RFP,
+          especially around safety. The tables below summarize our Beta Release /
+          showcase requirement work, abbreviated for the web. Bold emphasis marks
+          user safety additions and clarified wording.
+        </p>
+
+        <h3 class="project-subsection-title">Goal 1: Design for functionality</h3>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table: Functionality requirements
+            </caption>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Requirement</th>
+                <th>Evaluation criterion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.1</td>
+                <td>
+                  Provide at least 5 integrated resistance levels between 95 N
+                  and 210 N opposing the swimmer's horizontal motion.
+                </td>
+                <td>More distinct levels is better.</td>
+              </tr>
+              <tr>
+                <td>1.2</td>
+                <td>
+                  The difference between any two adjacent levels must be 2.2
+                  kg (5 lb) or less.
+                </td>
+                <td>Smaller step between adjacent levels is better.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-note">
+          Justification in the report ties 1.1 to parachute drag estimates at
+          about 2 m/s and compares against equipment that often tops out near
+          three coarse settings.
+        </p>
+
+        <h3 class="project-subsection-title">Goal 2: Design for usability</h3>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>Table: Usability requirements</caption>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Requirement</th>
+                <th>Evaluation criterion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2.1</td>
+                <td>
+                  Time to change between any two resistance levels must be less
+                  than 30 seconds.
+                </td>
+                <td>Shorter change time is better.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-note">
+          Our showcase prototype targeted about 3 seconds per change, which is
+          well inside this bound.
+        </p>
+
+        <h3 class="project-subsection-title">Goal 3: Design for safety</h3>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>Table: Safety requirements (selected rows)</caption>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Requirement</th>
+                <th>Evaluation criterion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>3.1</td>
+                <td>
+                  Handle at least 1000 N for the designed application without
+                  structural failure.
+                </td>
+                <td>Higher safe load is better.</td>
+              </tr>
+              <tr>
+                <td>3.2</td>
+                <td>
+                  Fully disable resistance with less than 133 N user applied
+                  force, without erroneous release.
+                </td>
+                <td>Closer to 133 N (below) is better.</td>
+              </tr>
+              <tr>
+                <td>3.3</td>
+                <td>Disable resistance within 5 seconds at any stage.</td>
+                <td>Shorter release time is better (≤ 5 s).</td>
+              </tr>
+              <tr>
+                <td>3.4</td>
+                <td>Re arm quick release within 30 seconds.</td>
+                <td>Shorter re arm time is better (≤ 30 s).</td>
+              </tr>
+              <tr>
+                <td>3.5</td>
+                <td>
+                  Any electricity at least 5 m horizontal and 1.5 m vertical
+                  from the pool; none above the pool.
+                </td>
+                <td>Lower voltage is better.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="project-subsection-title">Goal 4 and storage</h3>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>Table: Durability and storage (selected rows)</caption>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Requirement</th>
+                <th>Evaluation criterion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>4.1</td>
+                <td>
+                  Last 18 400 use cycles (25 m per cycle) without failure.
+                </td>
+                <td>More cycles without failure is better.</td>
+              </tr>
+              <tr>
+                <td>4.2</td>
+                <td>
+                  Materials retain breaking force after chlorine exposure per
+                  ISO 17608.
+                </td>
+                <td>Pass or fail.</td>
+              </tr>
+              <tr>
+                <td>5.1</td>
+                <td>Fit within a 13 × 13 × 11 inch storage space.</td>
+                <td>Smaller packed size is better.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="project-copy" id="materials">
+        <h2 class="project-section-title">Main rope material selection</h2>
+
+        <p>
+          Showcase planning included a Pugh comparison of polyester, nylon, and
+          polypropylene for the main rope. We cared about chlorine resistance,
+          water resistance, abrasion resistance, and a bit of flexibility so
+          tension could adjust without feeling rigid. Polyester won because it
+          balanced abrasion with pool chemistry better than nylon, and beat
+          polypropylene on abrasion even though flexibility was slightly lower.
+        </p>
+
+        <p>
+          We specified 3/8 inch double braided polyester for friction endurance
+          and shape retention over many cycles.
+        </p>
+
+        <h3 class="project-subsection-title">Pugh chart (polypropylene as datum)</h3>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table: Rope material Pugh chart, polypropylene = datum
+            </caption>
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Polyester</th>
+                <th>Nylon</th>
+                <th>Polypropylene (datum)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chlorine resistance</td>
+                <td>+</td>
+                <td>−</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Water resistance</td>
+                <td>−</td>
+                <td>−</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Abrasion resistance</td>
+                <td>+</td>
+                <td>+</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Flexibility</td>
+                <td>−</td>
+                <td>+</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="project-subsection-title">Pugh chart (polyester as datum)</h3>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table: Rope material Pugh chart, polyester = datum
+            </caption>
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Polyester (datum)</th>
+                <th>Nylon</th>
+                <th>Polypropylene</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chlorine resistance</td>
+                <td>0</td>
+                <td>−</td>
+                <td>−</td>
+              </tr>
+              <tr>
+                <td>Water resistance</td>
+                <td>0</td>
+                <td>−</td>
+                <td>+</td>
+              </tr>
+              <tr>
+                <td>Abrasion resistance</td>
+                <td>0</td>
+                <td>+</td>
+                <td>−</td>
+              </tr>
+              <tr>
+                <td>Flexibility</td>
+                <td>0</td>
+                <td>−</td>
+                <td>+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="project-copy" id="verification">
+        <h2 class="project-section-title">Verification and showcase results</h2>
+
+        <p>
+          Beta Release 5 and the showcase one pager describe how we planned to
+          measure force: tow the prototype at controlled speed, record a force
+          gauge on video, and average multiple trials per level. Requirement 3.2
+          disable tests borrow from seatbelt release literature (under 133 N).
+          The poster summarizes what we were ready to claim at showcase.
+        </p>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table: Design results summary
+            </caption>
+            <thead>
+              <tr>
+                <th>Theme</th>
+                <th>Result</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Variable resistance</td>
+                <td>8 levels, 60 N to 170 N range</td>
+                <td>Finer steps than many existing tools.</td>
+              </tr>
+              <tr>
+                <td>Quick adjustment</td>
+                <td>About 3 seconds per level change</td>
+                <td>Supports fast paced swim sets.</td>
+              </tr>
+              <tr>
+                <td>Safety</td>
+                <td>Quick release, no electricity at the pool</td>
+                <td>Matches updated safety objectives.</td>
+              </tr>
+              <tr>
+                <td>Durability</td>
+                <td>8000+ use cycles (more testing planned)</td>
+                <td>Rope friction life still being validated.</td>
+              </tr>
+              <tr>
+                <td>Compactness</td>
+                <td>About 13 × 17 × 4 cm shuttle</td>
+                <td>Fits MSSAC storage constraints.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          The poster conclusion matched where we actually were: the resistance
+          idea worked in dry land testing, but the in water setup we had planned
+          (a small self built pool or bathtub rig), long rope life, and product
+          polish were still open when we presented.
+        </p>
+      </section>
+
+      <section class="project-copy" id="next-steps">
+        <h2 class="project-section-title">Next steps we listed</h2>
+
+        <ul class="reference-list">
+          <li>Create a mechanism to detach the shuttle from the main rope easily.</li>
+          <li>Further test and improve durability of the main rope.</li>
+          <li>Verify safety during real swim use at MSSAC.</li>
+          <li>Fine tune resistance level settings in the water.</li>
+        </ul>
+
+        <p>
+          Longer term, we pictured multiple swimmers on one lane rope, each with
+          their own shuttle, so a whole lane could run personalized resistance
+          without crowding the deck.
+        </p>
+      </section>
+
+      <section class="project-copy" id="reflection">
+        <h2 class="project-section-title">What I took from showcase</h2>
+
+        <p>
+          Beta Release taught me to keep multiple concepts alive without
+          pretending they are equally ready. Showcase forced us to compress that
+          story into something a coach could understand in thirty seconds:
+          problem, mechanism, numbers, next steps. I spent a lot of time in the
+          requirement tables and verification sections because that is where I
+          could see whether our claims were actually testable.
+        </p>
+
+        <p>
+          This project pairs with the Year 1 design portfolio writeup on the same
+          RFP, which focuses on CTMFs and process reflection. This page is the
+          hardware and showcase side: the poster, the shuttle, and the tables we
+          used to argue the concept was credible, even though we never built the
+          water test rig we had talked about.
+        </p>
+
+        <p>
+          If you want every page of Beta Release, showcase planning, and the full
+          requirement justifications, those PDFs are the source. This site
+          version is meant to be readable, with real tables and images, not a
+          full document dump.
+        </p>
+
+        <p>
+          For the Year 1 portfolio's process reflection on the same term, see
+          <a href="year1-student-engineering-design-portfolio.html"
+            >Year 1 Student Engineering Design Portfolio</a
+          >.
+        </p>
+      </section>
+
+      <a class="back-link" href="index.html">Back</a>
+    </main>
+
+    <script src="reference-gallery.js"></script>
+    <script src="image-lightbox.js"></script>
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="CIV102 Team 602 matboard bridge: structural analysis in Python, prototyping, and a final build for EngSci first year."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>CIV102 Matboard Bridge | Team 602 | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="project-page portfolio-page">
+      <header class="portfolio-hero">
+        <a class="back-link back-link-ghost" href="index.html">Back to portfolio</a>
+
+        <p class="project-kicker">CIV102 / EngSci Year 1</p>
+        <h1 class="project-page-title">Matboard Bridge — Team 602</h1>
+
+        <p class="project-caption">
+          <i>
+            Design a 1.25&nbsp;m matboard bridge that carries a model train load,
+            justify every change with analysis, then build it well enough that the
+            theory is not lying to you.
+          </i>
+        </p>
+
+        <div class="project-facts">
+          <span class="fact-pill">Team 602: Declan Chan, Junye Zhou, Navneet Saxena, Tianhao Fu</span>
+          <span class="fact-pill">Material: 32″ × 40″ × 0.05″ matboard + contact cement</span>
+          <span class="fact-pill">Tools: Python, SolidWorks, OptiCutter</span>
+          <span class="fact-pill">Predicted failure load: ~954 N (after build margin)</span>
+          <span class="fact-pill">#1 cohort · #2 EngSci Class of 2025</span>
+        </div>
+      </header>
+
+      <figure class="portfolio-figure video-figure">
+        <div class="video-wrapper gif-wrapper">
+          <img
+            class="scroll-gif"
+            src="assets/civ102-bridge/bridge-collapse-poster.jpg"
+            data-gif="assets/civ102-bridge/bridge-collapse.gif"
+            data-poster="assets/civ102-bridge/bridge-collapse-poster.jpg"
+            alt="Matboard bridge collapsing under load at 820 newtons"
+            width="540"
+            height="304"
+            loading="eager"
+          />
+        </div>
+        <figcaption>
+          Bridge collapse at 820&nbsp;N during loading — loops when you scroll to it.
+        </figcaption>
+      </figure>
+
+      <section class="project-copy" id="overview">
+        <h2 class="project-section-title">What this was</h2>
+
+        <p>
+          CIV102’s bridge deliverable is one of the few times in first year where
+          the grade depends on something you actually glue together. Team 602 had
+          one sheet of matboard, two tubes of cement, and a loading case that
+          assumes the train can sit anywhere on a 1200&nbsp;mm span — so the worst
+          shear and moment might not be where you first guess.
+        </p>
+
+        <p>
+          Our workflow matched the official submissions: a design report walking
+          from Design&nbsp;0 through the final build, a calculations package with
+          hand checks and Python, and an engineering assembly with CAD and a
+          construction log. Declan Chan and I worked through the hand calculations
+          together — checking reactions, envelopes, and the design iterations
+          against what Python was predicting. Terry (Tianhao) Fu led the programming
+          side on
+          <a href="https://github.com/ATATC/CIV102-Bridge-Project" target="_blank" rel="noreferrer">our GitHub repo</a>;
+          Navneet drove SolidWorks drawings; the four of us split the report,
+          prototyping, and the long build nights.
+        </p>
+
+        <div class="figure-grid two-up">
+          <figure class="portfolio-figure">
+            <img
+              src="assets/year1-portfolio/img-001.jpg"
+              alt="Inside view of the completed matboard bridge showing diaphragm layout"
+              loading="lazy"
+            />
+            <figcaption>
+              Completed bridge (inside view). Yellow: triangular diaphragms; green:
+              vertical diaphragms; orange: cross diaphragm.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <img
+              src="assets/year1-portfolio/img-007.png"
+              alt="Side-view engineering sketch of the bridge"
+              loading="lazy"
+            />
+            <figcaption>
+              Side-view engineering sketch used while laying out cuts and splices.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="analysis">
+        <h2 class="project-section-title">Analysis before cutting</h2>
+
+        <p>
+          We started from Design&nbsp;0: a variable rectangular cross-section and
+          envelopes for shear, bending moment, and factor of safety along the
+          span. Hand calculations at the critical locations were checked against
+          Python that stepped the train load in 1&nbsp;mm increments — boring to do
+          by hand, but it caught mistakes early.
+        </p>
+
+        <p>
+          Cross-section tweaks were treated as convex optimization problems solved
+          with grid search (SciPy or PyTorch would have been faster, but grid
+          search was enough for our timeline). SolidWorks gave us sanity checks on
+          geometry; OptiCutter turned the final dimensions into a cut layout so we
+          did not waste matboard on the floor of Robarts.
+        </p>
+
+        <figure class="portfolio-figure">
+          <img
+            src="assets/year1-portfolio/img-002.png"
+            alt="OptiCutter layout for matboard pieces"
+            loading="lazy"
+          />
+          <figcaption>
+            OptiCutter layout for the final matboard template — cut once, regret
+            less.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="project-copy" id="prototype">
+        <h2 class="project-section-title">The prototype that argued back</h2>
+
+        <p>
+          Analysis said one thing; the prototype said another. We bought our own
+          matboard, built a full-scale test piece, and loaded it with two
+          50&nbsp;kg teammates until something broke — close to 1000&nbsp;N before
+          the splice let go. Shear near the sides was buckling the webs; the splice
+          wraps were too narrow to bear the moment once load piled on.
+        </p>
+
+        <figure class="portfolio-figure">
+          <img
+            src="assets/civ102-bridge/prototype-span.png"
+            alt="Full-scale prototype bridge spanning between two chairs"
+            loading="lazy"
+          />
+          <figcaption>
+            Full-scale prototype spanning between chairs before we loaded it to
+            failure.
+          </figcaption>
+        </figure>
+
+        <p>
+          That failure was useful. It pushed Design&nbsp;2’s triangular diaphragms
+          at the ends, a wider splice wrap (42.1&nbsp;mm where the sheet allowed),
+          an “X” brace where the prototype had been weakest, and a bottom splice
+          plate to use leftover board instead of pretending spare material does not
+          exist.
+        </p>
+
+        <div class="figure-grid two-up">
+          <figure class="portfolio-figure">
+            <img
+              src="assets/year1-portfolio/img-005.png"
+              alt="Prototype bridge failing at the splice under load"
+              loading="lazy"
+            />
+            <figcaption>
+              Prototype failure at the splice under roughly 1000&nbsp;N — the moment
+              we stopped trusting the model without testing.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <img
+              src="assets/year1-portfolio/img-004.png"
+              alt="Inner view showing triangular diaphragms after redesign"
+              loading="lazy"
+            />
+            <figcaption>
+              Triangular diaphragms after iteration — one leg aligned with the
+              cross-section so the web could not buckle away from the sides.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="iterations">
+        <h2 class="project-section-title">Iterations we actually shipped</h2>
+
+        <p>
+          <strong>Design&nbsp;1</strong> added diaphragms along the depth and raised
+          the section height to 160&nbsp;mm to fight flexural buckling (FOS had
+          been as low as 0.597 on the baseline). <strong>Design&nbsp;2</strong>
+          swapped end rectangles for triangles where shear peaked.{" "}
+          <strong>Design&nbsp;3</strong> tried a trapezoidal variable height —
+          Python liked it (displacement dropped from about 4.75&nbsp;mm to
+          3.75&nbsp;mm), but OptiCutter and a weekend deadline did not. We
+          reverted to a rectangular box beam for the final build and spent the
+          savings on splice strength instead of geometric showmanship.
+        </p>
+
+        <p>
+          Python’s theoretical failure load for the final geometry was about
+          1193&nbsp;N. We discounted that for handmade joints — roughly 20% in
+          the report — and planned around ~954&nbsp;N. Imperfect glue lines and
+          4:00&nbsp;a.m. clamps are their own load case.
+        </p>
+
+        <p>
+          At the class loading day, our bridge placed <strong>first in our
+          cohort</strong> and <strong>second overall</strong> in the EngSci Class
+          of 2025 — which felt like a fair payoff for the prototype that failed
+          loudly and the final build that did not.
+        </p>
+      </section>
+
+      <section class="project-copy" id="build">
+        <h2 class="project-section-title">Build weekend</h2>
+
+        <p>
+          Final construction was marking, cutting with eye protection, hand-pressing
+          cement for the first fifteen minutes, then weights overnight so the splice
+          would not creep open. The team logged about 130 hours total on the
+          project; the bridge alone was an 80-hour block split four ways — plus
+          caffeine and a very clean Robarts table when we left.
+        </p>
+
+        <div
+          class="figure-grid two-up"
+          data-gallery-label="Build, layout, and loading"
+        >
+          <figure class="portfolio-figure">
+            <img
+              src="assets/civ102-bridge/layout-marking.png"
+              alt="Declan and Navneet marking flange and diaphragm pieces on matboard with a framing square"
+              loading="lazy"
+            />
+            <figcaption>
+              Declan and Navneet laying out flanges and diaphragms on the sheet —
+              dimensions transferred from OptiCutter and CAD.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <img
+              src="assets/civ102-bridge/cutting-pieces.png"
+              alt="Navneet cutting labeled matboard pieces with a utility knife and framing square"
+              loading="lazy"
+            />
+            <figcaption>
+              Navneet cutting labeled pieces (top/bottom flanges, diaphragms, splice
+              wraps) with a knife and framing square.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <img
+              src="assets/civ102-bridge/report-p4-img3.jpeg"
+              alt="Team working on the bridge prototype late at night in a study space"
+              loading="lazy"
+            />
+            <figcaption>
+              Late-night prototype work at Robarts Commons.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <img
+              src="assets/civ102-bridge/loading-test-dorm.png"
+              alt="Final bridge on a dorm desk loaded with water jugs, wipes, and other weights"
+              loading="lazy"
+            />
+            <figcaption>
+              Loading the final bridge in Chestnut — household weights stacked along the
+              span before failure.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="takeaways">
+        <h2 class="project-section-title">What I took from it</h2>
+
+        <p>
+          This project is the reason my Year&nbsp;1 design portfolio keeps coming
+          back to prototyping and NGO-style objectives: the bridge did not care
+          that a trapezoid looked elegant in Python. The splice failed where we
+          had not given it area; the diaphragms mattered where shear was highest,
+          not where the drawing looked symmetric.
+        </p>
+
+        <p>
+          If you want the full formal write-up, tables, and appendix plots, they
+          live in our course PDFs — this page is the short version I would actually
+          tell a teammate over coffee.
+        </p>
+
+        <p>
+          For the Year 1 portfolio's process reflection on the same term, see
+          <a href="year1-student-engineering-design-portfolio.html"
+            >Year 1 Student Engineering Design Portfolio</a
+          >.
+        </p>
+      </section>
+
+      <a class="back-link" href="index.html">Back</a>
+    </main>
+
+    <script src="reference-gallery.js"></script>
+    <script src="image-lightbox.js"></script>
+    <script src="scroll-gif.js"></script>
+  </body>
+</html>

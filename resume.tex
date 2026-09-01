@@ -43,6 +43,8 @@
 
 \definecolor{resumeblue}{RGB}{70, 130, 180}
 
+\newcommand{\projectLink}[2]{\href{https://moonlitjaderabbit.github.io/#1}{\textbf{#2}}}
+
 \newcommand{\resumeItem}[1]{
   \item\small{
     {#1 \vspace{-2pt}}
@@ -94,20 +96,22 @@
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {\href{https://somabonebroth.com/}{Soma Bone Broth}}{Toronto, ON}
+      {Kitchen Hand}{Jan 2022 -- Feb 2022}
+      \resumeItemListStart
+        \resumeItem{Kitchen prep and cutting, dish washing, cleaning, and organizing workstations}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{CIV102 Matboard Bridge (Team 602)} $|$ \emph{Python, SolidWorks, OptiCutter}}{Nov 2026 -- Dec 2026}
-          \resumeItemListStart
-            \resumeItem{Designed, analyzed, and fabricated a 1.25\,m matboard bridge predicted to withstand 954\,N before failure while meeting strict material constraints}
-            \resumeItem{Led hand calculations with teammates; contributed to Python structural analysis (\href{https://github.com/ATATC/CIV102-Bridge-Project}{GitHub})}
-            \resumeItem{Built and tested full-scale prototype; splice failure near 1000\,N drove four design iterations (diaphragms, splice reinforcement)}
-            \resumeItem{Team: Declan Chan, Junye Zhou, Navneet Saxena, Tianhao Fu}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Praxis II --- Showcase Team Project} $|$ \emph{Requirements, Capstan Design}}{Feb 2026 -- Apr 2026}
+          {\projectLink{praxis-zipline-showcase.html}{Praxis II --- Showcase Team Project} $|$ \emph{SketchUp 3D, Capstan Design}}{Feb 2026 -- Apr 2026}
           \resumeItemListStart
             \resumeItem{Partner: Mississauga Aquatic Club (MSSAC); RFP focus on variable swim resistance for training}
             \resumeItem{Designed a capstan-based resistance system providing eight adjustable resistance levels (60--170\,N) with approximately 3-second switching time}
@@ -116,7 +120,7 @@
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{Praxis II --- Beta Release RFP} $|$ \emph{Stakeholder research, technical writing}}{Jan 2026 -- Feb 2026}
+          {\projectLink{stl-robotics-rfp.html}{Praxis II --- Beta Release RFP} $|$ \emph{Stakeholder research, technical writing}}{Jan 2026 -- Feb 2026}
           \resumeItemListStart
             \resumeItem{Developed an engineering requirements proposal to solve STL Robotics' challenge of collecting loose parts from portable competition floors and sorting reusable hardware safely and efficiently}
             \resumeItem{Conducted stakeholder interviews and portable-space measurements; framed safety and ergonomics requirements}
@@ -124,7 +128,16 @@
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{PHY180 Damped Pendulum Lab} $|$ \emph{OSP Tracker, Python, data analysis}}{Oct. 2025 -- Jan. 2026}
+          {\projectLink{civ102-matboard-bridge.html}{CIV102 --- Matboard Bridge} $|$ \emph{Python, SolidWorks}}{Nov 2025 -- Jan 2026}
+          \resumeItemListStart
+            \resumeItem{Designed, analyzed, and fabricated a 1.25\,m matboard bridge predicted to withstand 954\,N before failure while meeting strict material constraints}
+            \resumeItem{Led hand calculations with teammates; contributed to Python structural analysis (\href{https://github.com/ATATC/CIV102-Bridge-Project}{GitHub})}
+            \resumeItem{Built and tested full-scale prototype; splice failure near 1000\,N drove four design iterations (diaphragms, splice reinforcement)}
+            \resumeItem{Team: Declan Chan, Junye Zhou, Navneet Saxena, Tianhao Fu}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\projectLink{phy180-pendulum.html}{PHY180 Damped Pendulum Lab} $|$ \emph{OSP Tracker, Python, data analysis}}{Oct. 2025 -- Jan. 2026}
           \resumeItemListStart
             \resumeItem{Solo lab report: filmed pendulum at 60\,fps; tracked motion frame-by-frame in OSP Tracker}
             \resumeItem{Analyzed period vs.\ angle, damping, length scaling, and $Q$ vs.\ length; $Q \approx 109$ (two methods agreed)}
@@ -132,7 +145,7 @@
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{Praxis I --- Alpha Release Project} $|$ \emph{Proxy testing, Pugh analysis}}{Sept 2025 -- Dec 2025}
+          {\projectLink{praxis-i-design.html}{Praxis I --- Alpha Release Project} $|$ \emph{Proxy testing, Pugh analysis}}{Sept 2025 -- Dec 2025}
           \resumeItemListStart
             \resumeItem{Designed an Alpha Release solution addressing conflicting sleep and study lighting requirements in shared residence rooms}
             \resumeItem{Diverged on four concepts; ran proxy illuminance tests in a real dorm; converged with Pugh charts}
@@ -146,7 +159,7 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \textbf{Programming}{: Python, Java, C} \\
-     \textbf{Engineering Software}{: SolidWorks, OptiCutter, OSP Tracker} \\
+     \textbf{Engineering Software}{: SolidWorks, MATLAB, OSP Tracker} \\
      \textbf{Design methods}{: Requirements (NGO), Pugh matrices, proxy testing, stakeholder interviews, concept selection} \\
     }}
  \end{itemize}

@@ -1,0 +1,185 @@
+% Resume in LaTeX
+% Based on: https://github.com/sb2nov/resume (MIT License)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\definecolor{resumeblue}{RGB}{70, 130, 180}
+
+% Clickable link with a small blue external-link arrow
+\newcommand{\externalLink}[2]{%
+  \href{#1}{%
+    \textcolor{black}{#2}%
+    \hspace{0.15em}%
+    \textcolor{resumeblue}{\raisebox{0.15ex}{\scriptsize$\nearrow$}}%
+  }%
+}
+
+% Project title links to portfolio
+\newcommand{\projectLink}[2]{%
+  \externalLink{https://moonlitjaderabbit.github.io/#1}{\textbf{#2}}%
+}
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Junye Zhou} \\ \vspace{4pt}
+    \small
+    \href{https://moonlitjaderabbit.github.io/}{\color{resumeblue}\textbf{Portfolio}: moonlitjaderabbit.github.io}
+    \color{black} $|$
+    \href{mailto:junye.zhou@mail.utoronto.ca}{\color{resumeblue}junye.zhou@mail.utoronto.ca}
+    \color{black}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Toronto}{Toronto, ON}
+      {Bachelor of Applied Science in Computer Engineering}{Expected Graduation: 2030}
+      \resumeItemListStart
+        \resumeItem{Current coursework: Digital Systems (Verilog), Programming Fundamentals (C++), Intro to Electronics, Advanced Engineering Mathematics}
+        \resumeItem{Completed coursework: Electrical Circuits, Algorithms \& Data Structures (Python, C), Structural Analysis, Linear Algebra, Engineering Mathematics \& Computation}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \begin{tabularx}{0.97\textwidth}{@{}>{\bfseries}l @{\hspace{1.5em}} X@{}}
+      Languages: & C, Python, Java, C++, Verilog \\
+      Tools: & MATLAB, Quartus Prime, LTspice, OSP Tracker \\
+      Engineering: & Requirements Engineering, Pugh Matrices, Concept Selection, Verification \& Testing, Proxy Testing \\
+     \end{tabularx}
+    }}
+ \end{itemize}
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+      {\projectLink{praxis-zipline-showcase.html}{Variable Resistance Swim Training System}}
+      {Feb 2026 -- Apr 2026}
+      \resumeItemListStart
+        \resumeItem{Developed a variable-resistance swim training system for the Mississauga Aquatic Club (MSSAC) in response to a client RFP}
+        \resumeItem{Designed a capstan-based mechanism providing \textbf{8 adjustable resistance levels (60--170\,N)} with approximately \textbf{3-second switching time}}
+        \resumeItem{Evaluated alternative resistance mechanisms using trade-off analysis and Pugh matrices, balancing adjustability, manufacturability, and poolside safety}
+        \resumeItem{Created engineering requirements and verification plans; presented the final design at the Praxis II Showcase}
+      \resumeItemListEnd
+
+  \resumeProjectHeading
+      {\projectLink{civ102-matboard-bridge.html}{Matboard Bridge}}
+      {Nov 2025 -- Jan 2026}
+      \resumeItemListStart
+        \resumeItem{Ranked \textbf{\#1 in cohort} and \textbf{\#2 in EngSci Class of 2025} for bridge design and performance}
+        \resumeItem{Designed, analyzed, and fabricated a 1.25\,m matboard bridge with a predicted failure load of \textbf{954\,N}; full-scale testing reached approximately \textbf{1000\,N}}
+        \resumeItem{Performed hand calculations and compared results with team-developed \externalLink{https://github.com/ATATC/CIV102-Bridge-Project}{Python structural analysis} to verify predicted loads and failure modes}
+        \resumeItem{Iterated through four design revisions involving diaphragm placement and splice reinforcement while meeting strict material constraints}
+      \resumeItemListEnd
+
+  \resumeProjectHeading
+      {\projectLink{phy180-pendulum.html}{Damped Pendulum Lab}}
+      {Oct 2025 -- Jan 2026}
+      \resumeItemListStart
+        \resumeItem{Recorded pendulum motion at \textbf{60\,fps} and performed frame-by-frame motion tracking using OSP Tracker}
+        \resumeItem{Analyzed period-angle relationships, damping, length scaling, and quality factor, obtaining \textbf{$Q \approx 109$} using two independent methods}
+        \resumeItem{Quantified experimental uncertainty and compared measured behavior against theoretical predictions}
+      \resumeItemListEnd
+
+  \resumeProjectHeading
+      {\projectLink{praxis-i-design.html}{Alpha Release Project}}
+      {Sept 2025 -- Dec 2025}
+      \resumeItemListStart
+        \resumeItem{Designed a solution addressing conflicting sleep and study lighting requirements in shared residence rooms}
+        \resumeItem{Generated four design concepts and evaluated them using Pugh matrices and illuminance proxy testing in a real residence room}
+        \resumeItem{Recommended a foldable bed-dome concept targeting \textbf{$<1$ lux} at the sleeper's eyes}
+      \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Additional Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {\href{https://somabonebroth.com/}{Soma Bone Broth}}{Toronto, ON}
+      {Kitchen Hand}{Jan 2022 -- Feb 2022}
+      \resumeItemListStart
+        \resumeItem{Supported food preparation and workstation organization in a fast-paced commercial kitchen}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\end{document}
+"""
+
+path = "/mnt/data/resume_with_project_links.tex"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(latex)
+
+print(path)

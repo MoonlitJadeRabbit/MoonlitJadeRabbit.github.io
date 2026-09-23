@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Praxis I design report: Bed Dome Cover for UofT Chestnut Residence double rooms — lighting for conflicting sleep and study schedules."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Praxis I Design Report | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="project-page portfolio-page">
+      <header class="portfolio-hero">
+        <a class="back-link back-link-ghost" href="index.html">Back to portfolio</a>
+
+        <p class="project-kicker">Praxis I / Alpha Release Design</p>
+        <h1 class="project-page-title">
+          Lighting in Chestnut Residence Double Rooms
+        </h1>
+
+        <p class="project-caption">
+          <i>
+            Design recommendation for roommates on different sleep and study
+            schedules: four concepts, proxy illuminance testing in a real dorm,
+            and a final pick — the Bed Dome Cover.
+          </i>
+        </p>
+
+        <div class="project-facts">
+          <span class="fact-pill"
+            >Jiaxu Zhao, Junye Zhou, Jocelyn Li, Audrey Lin</span
+          >
+          <span class="fact-pill">UofT Chestnut Residence</span>
+          <span class="fact-pill">Target: &lt;1 lux at sleeper’s eyes</span>
+          <span class="fact-pill">~2991 words</span>
+        </div>
+      </header>
+
+      <section class="project-copy" id="overview">
+        <h2 class="project-section-title">What this project was</h2>
+
+        <p>
+          Praxis I asked us to treat a real stakeholder problem like engineers,
+          not decorators. Our team looked at University of Toronto Chestnut
+          Residence double rooms: two first-year students share roughly 350
+          square feet (33&nbsp;m²), each with a bed–desk pair, and two
+          non-dimmable ceiling lights over the desks. When one roommate studies
+          late, light from their fixture bleeds across the room and onto the
+          other’s bed. Sleep research recommends keeping melanopic illuminance
+          at the eye below about 1&nbsp;lux for rest; studying comfortably
+          wants well above 300&nbsp;lux at the work surface. Those numbers do not
+          coexist in one undivided room without a product intervention.
+        </p>
+
+        <p>
+          We rescoped mid-project to prioritize the <strong>resting roommate</strong>
+          as the primary stakeholder. The studying roommate and Residence Life
+          (no permanent room modifications) stayed in the picture, but every
+          Pugh comparison weighted direct and indirect light at the bed highest.
+          After diverging on four concepts and proxy-testing three physical
+          prototypes plus a bathroom-door scenario, we recommended a
+          <strong>Bed Dome Cover</strong>: a foldable canopy on the bed frame,
+          blackout fabric, and clamps with rubber cushions so nothing scars the
+          metal headboard.
+        </p>
+        <div class="figure-grid two-up">
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-i-design/room-photo-measurements.png"
+                alt="Chestnut dorm room photo with ceiling light measurements"
+                width="342"
+                height="259"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Chestnut double room: ceiling lights ~2.4&nbsp;m high, ~2.5&nbsp;m apart.
+            </figcaption>
+          </figure>
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-i-design/room-floor-plan.png"
+                alt="Floor plan of study desks, ceiling lights, and double beds"
+                width="383"
+                height="261"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Typical bed–desk pairs: light from one desk side reaches the opposite bed.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+
+<section class="project-copy" id="opportunity">
+        <h2 class="project-section-title">Stakeholders</h2>
+
+        <p>
+          We prioritized the <strong>resting roommate</strong> as the primary
+          stakeholder. The studying roommate and Residence Life (no permanent
+          room modifications) stayed in scope, but every comparison weighted
+          light at the bed highest.
+        </p>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>Table 1: Stakeholders and their expectations</caption>
+            <thead>
+              <tr>
+                <th>Stakeholder</th>
+                <th>Expectation and impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Resting roommate (primary)</td>
+                <td>
+                  Expectation: a lighting environment as dark as possible
+                  (&lt;1&nbsp;lux). Rest quality is greatly affected by room
+                  lighting; minimizing light exposure is prioritized.
+                </td>
+              </tr>
+              <tr>
+                <td>Studying roommate (secondary)</td>
+                <td>
+                  Expectation: sufficient luminance for studying
+                  (&gt;300&nbsp;lux). Productivity depends on adequate room
+                  lighting. Not the priority, but remains an important
+                  consideration in the design process.
+                </td>
+              </tr>
+              <tr>
+                <td>Residence Life Office (secondary)</td>
+                <td>
+                  Expectation: compliance with the Chestnut Residence Occupancy
+                  Agreement and other guidelines.
+                </td>
+              </tr>
+              <tr>
+                <td>Residence cleaning staff (secondary)</td>
+                <td>
+                  Expectation: minimal obstruction or inconvenience to routine
+                  room service and cleaning.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="project-copy" id="requirements">
+        <h2 class="project-section-title">
+          NGOs, requirements, and evaluation criteria
+        </h2>
+
+        <p>
+          The primary need, goals, and objectives for our design are summarized
+          in the diagram below. Chestnut roommate needs were translated into
+          measurable requirements and evaluation criteria (ECs) in Tables 2a–2c.
+          During rescoping we dropped Goal&nbsp;2 (study-side illuminance) and
+          focused on the sleeping roommate.
+        </p>
+
+        <figure class="portfolio-figure">
+          <div class="portfolio-figure-media">
+            <img
+              src="assets/praxis-i-design/ngos-goals-objectives.png"
+              alt="Diagram of needs, goals, and objectives with DfX principles"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            Figure 2: Needs, goals, and objectives (DfX principles in Appendix G).
+            <strong>Goal&nbsp;2</strong> (maximize study lighting) was removed
+            when we rescoped to prioritize the resting roommate.
+          </figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table 2a: Requirements and evaluation criteria (ECs) for Goal 1
+            </caption>
+            <thead>
+              <tr>
+                <th>Requirements</th>
+                <th>Justification</th>
+                <th>Metric</th>
+                <th>Evaluation criteria</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Rq.&nbsp;1.1:</strong> Reduce direct light exposure
+                  from the sleeper’s head position on the bed opposite the light
+                  source to under 1&nbsp;lux.
+                </td>
+                <td>
+                  Medical guidance: maximum ambient melanopic EDI of 1&nbsp;lx
+                  at the eye to avoid melatonin suppression and sleep disturbance
+                  [3].
+                </td>
+                <td>Illuminance (lux)</td>
+                <td>
+                  <strong>EC&nbsp;1.1:</strong> Direct illuminance from the bed
+                  opposite the light source, toward the light source — the lower
+                  the better.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Rq.&nbsp;1.2:</strong> Reduce reflections off the
+                  ceiling directly above the bed to below 1&nbsp;lux.
+                </td>
+                <td>Appendix A.8 (ISO/CIE 8995-1).</td>
+                <td>Illuminance (lux)</td>
+                <td>
+                  <strong>EC&nbsp;1.2:</strong> Indirect illuminance from the bed
+                  to the ceiling directly above — the lower the better.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table 2b: Requirements and evaluation criteria (ECs) for Goal 3
+            </caption>
+            <thead>
+              <tr>
+                <th>Requirements</th>
+                <th>Justification</th>
+                <th>Metric</th>
+                <th>Evaluation criteria</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Rq.&nbsp;3.1:</strong> Minimize setup time for routine
+                  use.
+                </td>
+                <td>
+                  ISO 9241-11 ergonomics: efficiency reduces time to achieve
+                  intended outcomes (Appendix A.1).
+                </td>
+                <td>Time (seconds) to set up for routine use</td>
+                <td>
+                  <strong>EC&nbsp;3.1:</strong> Approximate deploy time from
+                  stowed state — the lower the better.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Rq.&nbsp;3.2:</strong> No permanent modifications to the
+                  room.
+                </td>
+                <td>
+                  Chestnut Occupancy Agreement 2025–26: residents must not alter
+                  the premises [2].
+                </td>
+                <td>None (see Appendix F for “permanent”)</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td><strong>Rq.&nbsp;3.3:</strong> Design weight under 7&nbsp;kg.</td>
+                <td>
+                  HSE manual handling: 7&nbsp;kg is the lower threshold for
+                  handling from mid–lower-leg height [6] (Appendix A.9).
+                </td>
+                <td>Total weight (kg)</td>
+                <td>
+                  <strong>EC&nbsp;3.2:</strong> The lighter the design, the
+                  better.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table 2c: Requirements and evaluation criteria (ECs) for Goal 4
+            </caption>
+            <thead>
+              <tr>
+                <th>Requirements</th>
+                <th>Justification</th>
+                <th>Metric</th>
+                <th>Evaluation criteria</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Rq.&nbsp;4.1:</strong> Fit within one roommate’s half
+                  of a typical Chestnut double room (16.25&nbsp;m²) (Appendix D).
+                </td>
+                <td>
+                  Necessary for use in Chestnut doubles without impeding the
+                  roommate’s personal space.
+                </td>
+                <td>
+                  Floor area when in use (m²) (Toronto municipal code [7])
+                </td>
+                <td>
+                  <strong>EC&nbsp;4.1:</strong> The less space occupied when in
+                  use, the better.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="project-copy" id="concepts">
+        <h2 class="project-section-title">Four design concepts</h2>
+
+        <p>
+          After classical brainstorming and a morphological chart (breaking
+          anchoring on “make sleeping area dark”), we converged on four main
+          concepts for proxy testing and comparison.
+        </p>
+
+        <h3 class="project-subsection-title">Bed dome cover</h3>
+        <p>
+          Inspired by a baby stroller canopy, a lightweight foldable frame and
+          blackout fabric form a darkened “pod” around the sleeper’s upper body.
+          Two clamps secure the cover to the Chestnut bed frame without permanent
+          modifications.
+        </p>
+
+        <h3 class="project-subsection-title">Lamp coverings</h3>
+        <p>
+          A hood around the ceiling fixture directs most light onto the desk
+          instead of across the room. Clip-on or suction mounting allows removal
+          without damaging the room.
+        </p>
+
+        <h3 class="project-subsection-title">Retractable room divider</h3>
+        <p>
+          Two posts and a blackout fabric panel (airport stanchion logic, ~1.8&nbsp;m
+          high) pull out between bed and desk areas. When stowed, floor occupancy
+          stays low; when extended, the panel blocks light bleed to the sleeper.
+        </p>
+
+        <h3 class="project-subsection-title">Bathroom study extension</h3>
+        <p>
+          Moves the studying roommate into the bathroom so the main room stays
+          dark: clip-on foldable tables at sink and toilet, a removable seat
+          cushion, and optional task light on the towel rack. This concept emerged
+          after rescoping to prioritize the resting roommate.
+        </p>
+
+        <div
+          class="reference-gallery"
+          data-reference-gallery
+          tabindex="0"
+          aria-roledescription="carousel"
+          aria-label="Design concept reference figures"
+        >
+          <div class="reference-gallery-toolbar">
+            <p class="reference-gallery-label">Concept reference figures</p>
+            <p class="reference-gallery-counter" data-gallery-counter>1 / 4</p>
+          </div>
+
+          <div class="reference-gallery-frame">
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-prev
+              aria-label="Previous concept figure"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 6l-6 6 6 6"></path>
+              </svg>
+            </button>
+
+            <div class="reference-gallery-viewport">
+              <figure class="reference-gallery-slide is-active">
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/report-p8-img1.png"
+                    alt="Bed dome cover concept reference"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Bed dome cover.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/report-p8-img2.png"
+                    alt="Lamp covering concept reference"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Lamp covering.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/report-p8-img3.png"
+                    alt="Retractable room divider concept reference"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Retractable room divider — stanchion and extended curtain.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/report-p9-img1.png"
+                    alt="Bathroom study extension concept reference"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Bathroom study extension.</figcaption>
+              </figure>
+            </div>
+
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-next
+              aria-label="Next concept figure"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6l6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+        <ul>
+          <li>Bed dome cover</li>
+          <li>Lamp coverings</li>
+          <li>Retractable room divider</li>
+          <li>Bathroom study extension</li>
+        </ul>
+      </section>
+
+      <section class="project-copy" id="proxy-testing">
+        <h2 class="project-section-title">Proxy testing in a real dorm</h2>
+
+        <p>
+          UNEP guidance calls for integrating-sphere or goniophotometer tests —
+          not feasible in Praxis I. We used a <strong>Google Pixel&nbsp;7</strong>
+          (VD6283TX ambient light sensor) and the
+          <strong>LightMeter</strong> Android app in a Chestnut double room at
+          night with curtains closed, as a proxy for standardized dark-room
+          measurements while staying representative of real use.
+        </p>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>
+              Table 3: Measurement equipment and environment for illuminance
+              proxy testing
+            </caption>
+            <thead>
+              <tr>
+                <th>Measurement equipment</th>
+                <th>Replacing</th>
+                <th>Justification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  VD6283TX ambient light sensor (Google Pixel&nbsp;7 smartphone)
+                </td>
+                <td>V-λ corrected goniophotometer (Appendix A.2)</td>
+                <td>
+                  Factory-calibrated sensor adequately resembles standardized
+                  goniophotometers (Appendix A.2).
+                </td>
+              </tr>
+              <tr>
+                <td>LightMeter Android application</td>
+                <td>Direct data from the light sensor</td>
+                <td>Ensures accurate luminance readouts from the sensor.</td>
+              </tr>
+              <tr>
+                <td>Chestnut double room at night, curtains closed</td>
+                <td>Standardized testing room (blacked out) (Appendix A.3)</td>
+                <td>
+                  Approximates a standardized room and augments lab methods by
+                  confirming feasibility in real dorm conditions.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="project-subsection-title">Functional prototypes</h3>
+
+        <ul>
+          <li>
+            <strong>Bed dome cover:</strong> Lightweight blanket (143.5 ×
+            70&nbsp;cm) at a 45° slant over the bed to approximate the foldable
+            fabric cover.
+          </li>
+          <li>
+            <strong>Lamp cover:</strong> Towel taped to a Chestnut ceiling light
+            to approximate the flexible hood and non-permanent attachment.
+          </li>
+          <li>
+            <strong>Retractable room divider:</strong> Chestnut curtain (~1.8&nbsp;m
+            high, 2&nbsp;m wide) held at the room center, top touching the
+            ceiling, to partition the space.
+          </li>
+          <li>
+            <strong>Bathroom study extension:</strong> No physical prototype —
+            illuminance depends only on how far the bathroom door is opened.
+          </li>
+        </ul>
+
+        <p>
+          For each test we placed the phone at the approximate head location of
+          the sleeper — about <strong>30&nbsp;cm from the headboard</strong> —
+          to simulate light incident on the sleeper’s field of vision. We
+          recorded direct illuminance toward the active ceiling light, indirect
+          illuminance toward the ceiling above the bed, and (for wall-facing
+          sleepers) the nearest wall.
+        </p>
+
+        <div
+          class="reference-gallery"
+          data-reference-gallery
+          tabindex="0"
+          aria-roledescription="carousel"
+          aria-label="Proxy testing photos"
+        >
+          <div class="reference-gallery-toolbar">
+            <p class="reference-gallery-label">Proxy testing gallery</p>
+            <p class="reference-gallery-counter" data-gallery-counter>1 / 9</p>
+          </div>
+
+          <div class="reference-gallery-frame">
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-prev
+              aria-label="Previous proxy test photo"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 6l-6 6 6 6"></path>
+              </svg>
+            </button>
+
+            <div class="reference-gallery-viewport">
+              <figure class="reference-gallery-slide is-active">
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proxy-bed-dome-blanket.png"
+                    alt="Blanket stand-in for bed dome over Chestnut double bed with dimension labels"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Bed dome functional prototype: blanket 143.5 × 70&nbsp;cm at
+                  45° over a Chestnut double bed.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proxy-lux-measurement.png"
+                    alt="Illuminance test setup and LightMeter reading of 8.3 lux"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Lux measurement: directions from the sleeper position (example
+                  8.3&nbsp;lux).
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proxy-lamp-cover-taped.png"
+                    alt="Towel lamp cover on ceiling fixture with taped regions marked"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Lamp cover prototype: towel on the fixture, taped at the trim.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proto-01.png"
+                    alt="Towel draped over Chestnut ceiling light"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Ceiling lamp cover in the dorm room.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proto-06.png"
+                    alt="Fabric at crown molding near the bed"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Fabric at the ceiling line — interface with Chestnut molding.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proto-04.png"
+                    alt="Desk lamp with microfiber hood"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Desk-side hood: light pooled on the work surface.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proto-02.png"
+                    alt="Desk glare without lamp cover"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Without containment — spill and monitor glare.</figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/proto-05.png"
+                    alt="Desk with localized light from covered lamp"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  With covering — darker surround, brighter desk pool.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/praxis-i-design/bed-dome-reference.jpg"
+                    alt="Additional dorm documentation from testing"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Additional documentation from test nights.</figcaption>
+              </figure>
+            </div>
+
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-next
+              aria-label="Next proxy test photo"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6l6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+
+        <h3 class="project-subsection-title">Videos: with vs without lamp control</h3>
+
+        <div
+          class="figure-grid two-up"
+          data-gallery-label="With vs without lamp control"
+        >
+          <figure class="portfolio-figure video-figure">
+            <div class="video-wrapper">
+              <video controls playsinline preload="metadata">
+                <source
+                  src="assets/praxis-i-design/room-without-lamp-covering.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <figcaption>
+              Room <strong>without</strong> lamp covering — spill and monitor glare.
+            </figcaption>
+          </figure>
+          <figure class="portfolio-figure video-figure">
+            <div class="video-wrapper">
+              <video controls playsinline preload="metadata">
+                <source
+                  src="assets/praxis-i-design/room-with-lamp-covering.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <figcaption>
+              Room <strong>with</strong> covering — localized pool of light on the desk.
+            </figcaption>
+          </figure>
+        </div>
+
+        <figure class="portfolio-figure video-figure">
+          <div class="video-wrapper">
+            <video controls playsinline preload="metadata">
+              <source
+                src="assets/praxis-i-design/bed-dome-pov-demo.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="assets/praxis-i-design/bed-dome-pov-demo.mov"
+                type="video/quicktime"
+              />
+            </video>
+          </div>
+          <figcaption>
+            Bed dome functional prototype from the <strong>sleeper’s POV</strong>
+            (blanket stand-in).
+          </figcaption>
+        </figure>
+
+      </section>
+
+      <section class="project-copy" id="results">
+        <h2 class="project-section-title">Measurement matrix and Pugh chart</h2>
+
+        <p>
+          Deploy time used reference motions (stroller canopy unfold, roller blind,
+          lecture-hall desk unfold). Weight used material estimates (Appendix C)
+          or catalog data (IKEA room divider). EC 4.1 was not scored in the matrix
+          because every concept except the divider uses negligible floor area when
+          stowed.
+        </p>
+
+        <div class="table-wrap">
+          <table class="portfolio-table">
+            <caption>Table 7: Measurement matrix (proxy test results)</caption>
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>EC 1.1 direct (lux)</th>
+                <th>EC 1.2 indirect (lux)</th>
+                <th>EC 3.1 setup (s)</th>
+                <th>EC 3.2 weight (g)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bed Dome Cover</td>
+                <td>2.9</td>
+                <td>1.2</td>
+                <td>3–5</td>
+                <td>920*</td>
+              </tr>
+              <tr>
+                <td>Lamp Cover</td>
+                <td>7.0</td>
+                <td>1.7</td>
+                <td>0</td>
+                <td>400*</td>
+              </tr>
+              <tr>
+                <td>Room Divider</td>
+                <td>2.4</td>
+                <td>1.4</td>
+                <td>~5</td>
+                <td>4960</td>
+              </tr>
+              <tr>
+                <td>Bathroom Extension</td>
+                <td>0.5 (max)</td>
+                <td>0</td>
+                <td>~5</td>
+                <td>2700*</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-note">
+          *Estimated from reference materials and calculations in the report appendix.
+          Raw lux traces are in Appendix B of the PDF.
+        </p>
+
+        <div class="table-wrap">
+          <table class="portfolio-table pugh-table">
+            <caption>
+              Table 8: Pugh chart (Bed Dome Cover = datum; + better, − worse)
+            </caption>
+            <thead>
+              <tr>
+                <th>Evaluation criterion</th>
+                <th>Lamp cover</th>
+                <th scope="col" class="col-datum">Bed dome</th>
+                <th>Room divider</th>
+                <th>Bathroom ext.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  EC 1.1: Direct illuminance — the lower the better.
+                  <em class="table-priority">High priority</em>
+                </td>
+                <td>−</td>
+                <td class="col-datum" rowspan="4"><strong>datum</strong></td>
+                <td>+</td>
+                <td>+</td>
+              </tr>
+              <tr>
+                <td>
+                  EC 1.2: Indirect illuminance (ceiling) — the lower the better.
+                  <em class="table-priority">High priority</em>
+                </td>
+                <td>−</td>
+                <td>−</td>
+                <td>+</td>
+              </tr>
+              <tr>
+                <td>EC 3.1: Setup time for routine use — the lower the better.</td>
+                <td>+</td>
+                <td>−</td>
+                <td>−</td>
+              </tr>
+              <tr>
+                <td>EC 4.2: Weight — the lighter the better.</td>
+                <td>+</td>
+                <td>−</td>
+                <td>−</td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td>2+ / 2−</td>
+                <td class="col-datum"><strong>0</strong></td>
+                <td>2− / 2 N/A</td>
+                <td>2+ / 2−</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          On illuminance alone, the bathroom extension wins. We still ranked the
+          bed dome ahead because we had no comfort metric for the studying
+          roommate, and the bathroom layout failed several BIFMA-style ergonomics
+          checks (seat height 37&nbsp;cm vs 38.1–50&nbsp;cm recommended, seat
+          depth too long, seat width too narrow). Forcing a roommate to study on
+          a toilet seat is also a relationship risk we were not willing to ignore.
+        </p>
+      </section>
+
+      <section class="project-copy" id="recommendation">
+        <h2 class="project-section-title">Final recommended design</h2>
+
+        <p>
+          The bed dome balances darkness, weight, and roommate equity. At
+          ~920&nbsp;g it is far lighter than a 4.96&nbsp;kg divider panel, deploys
+          in a few seconds once clamped, and shields the sleeper without kicking
+          the studier out of the room. Our blanket proxy already hit 2.9 / 1.2
+          lux on EC 1.1 and 1.2; the report argues commercial blackout PP fabric
+          (e.g. Multiblock® 425) and a tighter seal would close the gap to the
+          1&nbsp;lux requirement line.
+        </p>
+
+        <h3 class="project-subsection-title">Major design decisions</h3>
+
+        <ul class="reference-list">
+          <li>
+            <strong>Polypropylene blackout fabric:</strong> low density (~0.905
+            g/cm³), good tensile strength, blocks light without a floor footprint.
+          </li>
+          <li>
+            <strong>Rubber-lined clamps:</strong> attach to the Chestnut headboard
+            rail; modeled clamp force ~134&nbsp;N (~0.084&nbsp;MPa), well below
+            steel yield, to satisfy Residence Life on “no permanent damage.”
+          </li>
+          <li>
+            <strong>Foldable hinge:</strong> stroller-inspired geometry stows above
+            the bed for cleaning access and keeps deploy time inside EC 3.1.
+          </li>
+        </ul>
+
+        <div class="figure-grid two-up">
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-i-design/bed-dome-sketch.png"
+                alt="Hand-drawn sketches of the bed dome cover from front, back, side, and hinge detail"
+                width="508"
+                height="357"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              A sketch of the foldable bed dome cover for Chestnut Residence Double
+              Room beds. A metal wire frame supports a light-blocking fabric cover.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/praxis-i-design/bed-dome-clamp-sketch.png"
+                alt="Hand-drawn sketch of cushioned clamp and hinge attaching the dome to the bed frame"
+                width="398"
+                height="277"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Cushioned clamping mechanism used to hold up the bed dome cover on
+              the Chestnut bed frame.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="reflection">
+        <h2 class="project-section-title">What I took away</h2>
+
+        <p>
+          This was the Alpha Release cycle in Praxis I: NGOs and requirements
+          before CAD beauty renders, diverging tools that actually changed the
+          solution set, and proxy tests that were honest about uncertainty. The
+          lamp cover videos and towel-on-ceiling photos are rough, but they
+          convinced us that redirecting flux is not the same as protecting a
+          sleeper’s eyes. The Pugh numbers pushed us to articulate why
+          “winning” illuminance in the bathroom still lost on human factors.
+        </p>
+
+        <p>
+          The full PDF (references, appendix lux tables, weight derivations, and
+          alternate Pugh charts) is the archival version. This page is the
+          portfolio walkthrough with the tables and media we would show at a
+          critique. For the Year 1 portfolio’s process reflection on the same
+          term, see
+          <a href="year1-student-engineering-design-portfolio.html"
+            >Year 1 Student Engineering Design Portfolio</a
+          >.
+        </p>
+      </section>
+
+      <a class="back-link" href="index.html">Back</a>
+    </main>
+
+    <script src="reference-gallery.js"></script>
+    <script src="image-lightbox.js"></script>
+  </body>
+</html>

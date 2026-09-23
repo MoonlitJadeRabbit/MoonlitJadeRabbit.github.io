@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Personal Telegram Video Archive Bot: forward videos to a private bot, archive them in a channel, and organize with categories, collections, and search. Built with Python and aiogram."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Telegram Video Archive Bot | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="project-page portfolio-page">
+      <header class="portfolio-hero">
+        <a class="back-link back-link-ghost" href="index.html">Back to portfolio</a>
+
+        <p class="project-kicker">Archive</p>
+        <h1 class="project-page-title">Telegram Video Archive Bot</h1>
+
+        <p class="project-caption">
+          <i>
+            A private Telegram bot that copies forwarded videos into my own archive
+            channel, indexes them in SQLite, and lets me sort everything by category
+            without re-uploading gigabytes of files.
+          </i>
+        </p>
+
+        <div class="project-facts">
+          <span class="fact-pill">Junye Zhou · solo build</span>
+          <span class="fact-pill">Python · aiogram 3.x</span>
+          <span class="fact-pill">SQLite · private channel storage</span>
+          <span class="fact-pill">Cursor AI wrote ~100% of the code</span>
+        </div>
+      </header>
+
+      <section class="project-copy" id="overview">
+        <h2 class="project-section-title">What it does</h2>
+
+        <p>
+          I forward a video (or a whole album) to my bot in a private chat. The bot
+          copies the message into a dedicated archive channel I control, stores
+          metadata in a local database, and asks which category the upload belongs
+          in. Later I can browse by category, search captions, or open the original
+          archived message in Telegram with one tap.
+        </p>
+
+        <p>
+          The point is not “another downloader.” Telegram already hosts the files.
+          What I wanted was a <strong>personal index</strong> that survives when a
+          source channel disappears, plus a workflow that feels as low-friction as
+          forwarding a message.
+        </p>
+
+        <!-- IMAGE: Forwarding a video to the bot in DM -->
+        <figure class="portfolio-figure media-placeholder">
+          <div class="project-image thumb-09" style="min-height: 12rem; border-radius: 0.5rem">
+            <span class="thumb-label">Demo placeholder</span>
+          </div>
+          <figcaption>
+            [Insert screenshot or GIF: forwarding a video to the bot and seeing
+            “Saved as #…”]
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="project-copy" id="motivation">
+        <h2 class="project-section-title">Why I built it</h2>
+
+        <p>
+          I use Telegram for a lot of video content — tutorials, clips, references.
+          Saved Messages helps, but it turns into a pile fast. Worse, when a channel
+          gets deleted, restricted, or the account vanishes, the forward you kept
+          might still play… until it does not. I wanted something closer to a real
+          archive: my copy, my channel, my labels.
+        </p>
+
+        <p>
+          The design goals were simple:
+        </p>
+
+        <ul>
+          <li>Save by <strong>forwarding</strong>, not by manual download/upload</li>
+          <li>Keep the heavy files in Telegram (use <code>file_id</code> + channel copies)</li>
+          <li>Organize with <strong>categories</strong>, optional tags, and album-style <strong>collections</strong></li>
+          <li>Stay usable when I dump 20 videos in a row (batch categorization)</li>
+        </ul>
+      </section>
+
+      <section class="project-copy" id="stack">
+        <h2 class="project-section-title">Technical stack</h2>
+
+        <div class="project-facts">
+          <span class="fact-pill">Python 3</span>
+          <span class="fact-pill">aiogram 3.x</span>
+          <span class="fact-pill">SQLite (aiosqlite)</span>
+          <span class="fact-pill">Telegram Bot API</span>
+        </div>
+
+        <p>
+          The bot runs as a long-polling Python process on my machine (or a VPS when
+          I move it). <strong>aiogram</strong> handles updates and inline keyboards.
+          <strong>SQLite</strong> stores one row per archived video: <code>file_id</code>,
+          archive message id, caption, source chat info, category, collection link, and
+          a <code>bulk_upload_id</code> for batch forwards.
+        </p>
+
+        <p>
+          Storage strategy: the “real” video lives in a <strong>private Telegram
+          channel</strong> the bot administers. The database is only an index — like
+          a library catalogue, not the warehouse. That keeps the bot lightweight and
+          avoids burning disk space on multi-gigabyte files.
+        </p>
+
+        <p>
+          <strong>How it was built:</strong> I did not hand-write this codebase line by
+          line. <strong>Cursor AI wrote nearly 100% of the code</strong> — project setup,
+          handlers, database migrations, bug fixes, and UI tweaks. My role was to describe
+          what I wanted in plain language, test the bot in Telegram, and send follow-up
+          prompts when something broke or felt annoying. I still own the product decisions
+          (private channel storage, categories, batch flows), but the implementation is
+          almost entirely AI-generated inside Cursor.
+        </p>
+      </section>
+
+      <section class="project-copy" id="telegram-tools">
+        <h2 class="project-section-title">Other Telegram bots I used</h2>
+
+        <p>
+          Besides writing my own bot in Python, setup relied on a few official and
+          third-party Telegram bots. None of them store my videos — they only helped
+          with credentials and IDs.
+        </p>
+
+        <h3 class="project-subsection-title">@BotFather</h3>
+        <p>
+          <strong>What it is:</strong> Telegram’s official bot for creating and managing bots.
+        </p>
+        <p>
+          <strong>How I used it:</strong>
+        </p>
+        <ul>
+          <li><code>/newbot</code> — create the bot and get the <code>BOT_TOKEN</code> for <code>.env</code></li>
+          <li><code>/mybots</code> — open bot settings, revoke/regenerate the token if it leaks</li>
+          <li>Add the bot as an <strong>admin</strong> of my private archive channel (must be allowed to post)</li>
+        </ul>
+        <p>
+          BotFather only manages the bot account. It does <em>not</em> give you channel IDs or
+          archive videos for you.
+        </p>
+
+        <h3 class="project-subsection-title">@raw_data_bot (Raw Data Bot)</h3>
+        <p>
+          <strong>What it is:</strong> A utility bot that replies with the raw JSON Telegram
+          sends about a message or chat — useful for debugging and for copying numeric IDs.
+        </p>
+        <p>
+          <strong>How I used it:</strong> After adding it to my <strong>private archive channel</strong>,
+          it printed the channel’s chat id in the <code>-100…</code> format. That value goes in
+          <code>ARCHIVE_CHANNEL_ID</code> in <code>.env</code>. This was more reliable for channels
+          than forwarding a message to a generic “get id” bot.
+        </p>
+
+        <h3 class="project-subsection-title">@userinfobot</h3>
+        <p>
+          <strong>What it is:</strong> Shows your Telegram user id and basic info when you
+          forward a message or start a chat.
+        </p>
+        <p>
+          <strong>How I used it:</strong> To find my own <code>OWNER_USER_ID</code> (optional
+          in <code>.env</code> so only I can use the bot). Important distinction: a
+          <strong>user id</strong> is a positive number like <code>5856941941</code>; a
+          <strong>channel id</strong> is negative and usually starts with <code>-100</code>.
+          I initially confused the two — userinfobot is for people, not channels.
+        </p>
+
+        <h3 class="project-subsection-title">@getidsbot (optional)</h3>
+        <p>
+          Same job as raw_data_bot for some setups: add it to a group or channel, and it
+          reports chat ids. I mention it because tutorials often recommend it; I ended up
+          preferring raw_data_bot for the archive channel.
+        </p>
+      </section>
+
+      <section class="project-copy" id="instructions">
+        <h2 class="project-section-title">How to activate and use the bot</h2>
+
+        <p>
+          These steps match how the project is meant to run on Windows (local machine).
+          For 24/7 uptime, run the same code on a PC that stays on, or move it to a VPS later.
+        </p>
+
+        <h3 class="project-subsection-title">1 — Create the bot (Telegram)</h3>
+        <ol>
+          <li>Open <strong>@BotFather</strong> → <code>/newbot</code> → copy the token.</li>
+          <li>Create a <strong>private channel</strong> (your archive storage).</li>
+          <li>Add your bot to that channel as <strong>Administrator</strong> with permission to post messages.</li>
+          <li>Add <strong>@raw_data_bot</strong> to the channel briefly; copy the channel id (<code>-100…</code>).</li>
+          <li>Optional: message <strong>@userinfobot</strong> to get your user id for <code>OWNER_USER_ID</code>.</li>
+        </ol>
+
+        <!-- IMAGE: BotFather + channel admin setup -->
+        <figure class="portfolio-figure media-placeholder">
+          <div class="project-image thumb-07" style="min-height: 10rem; border-radius: 0.5rem">
+            <span class="thumb-label">Setup placeholder</span>
+          </div>
+          <figcaption>
+            [Insert screenshot: BotFather token screen and bot added as channel admin]
+          </figcaption>
+        </figure>
+
+        <h3 class="project-subsection-title">2 — Configure the project</h3>
+        <p>In the project folder, copy <code>.env.example</code> to <code>.env</code> and set:</p>
+        <div class="code-snippet">
+          <pre>BOT_TOKEN=your_token_from_botfather
+ARCHIVE_CHANNEL_ID=-100xxxxxxxxxx
+OWNER_USER_ID=your_numeric_user_id
+SQLITE_PATH=data/bot.sqlite3</pre>
+        </div>
+        <p>
+          Never commit <code>.env</code> or paste the token in chat. If it leaks, revoke it in BotFather.
+        </p>
+
+        <h3 class="project-subsection-title">3 — Install and start</h3>
+        <div class="code-snippet">
+          <pre>cd videodownloadbot
+py -m venv .venv
+.\.venv\Scripts\pip install -r requirements.txt
+# Or double-click start_bot.bat on Windows</pre>
+        </div>
+        <p>
+          Leave the terminal window open while the bot runs. Use <code>stop_bot.bat</code> or
+          close the window to stop it. If you see “conflict” errors, only one instance should
+          be running — run <code>taskkill /IM python.exe /F</code> once, then start again.
+        </p>
+
+        <h3 class="project-subsection-title">4 — Daily usage</h3>
+        <ul>
+          <li>
+            <strong>Save a video:</strong> Open your bot in DM → forward (or send) a video.
+            Wait for “Saved as <code>#id</code>” → tap a category on the inline keyboard.
+          </li>
+          <li>
+            <strong>Batch forwards:</strong> Forward many videos one after another; after a
+            short pause you get <em>one</em> picker for the whole batch.
+          </li>
+          <li>
+            <strong>Album / media group:</strong> Forward an album; the bot saves a
+            <strong>collection</strong> and asks for a category once.
+          </li>
+          <li>
+            <strong>Skip → Uncategorized:</strong> Keep the save, label as <code>uncategorized</code>.
+          </li>
+          <li>
+            <strong>Cancel · Don't save:</strong> Remove that upload from the archive and database.
+          </li>
+        </ul>
+
+        <h3 class="project-subsection-title">5 — Commands</h3>
+        <div class="code-snippet">
+          <pre>/start, /help     — intro and command list
+/videos            — browse by category (paginated)
+/search &lt;text&gt;    — search captions, tags, categories
+/move &lt;id&gt;        — change category (e.g. /move 12 zw)
+/tag &lt;id&gt; …       — set category + extra tags
+/collection &lt;id&gt;  — open an album collection
+/delete &lt;id&gt;      — remove from archive + database
+/stats             — count and storage summary</pre>
+        </div>
+
+        <p>
+          Protected or expired forwards may fail to copy; download the file to your phone
+          and <strong>send it as a file</strong> to the bot instead of forwarding.
+        </p>
+      </section>
+
+      <section class="project-copy" id="cursor-prompts">
+        <h2 class="project-section-title">Essential Cursor AI prompts</h2>
+
+        <p>
+          Below are real prompts I used (lightly trimmed for length). This is the actual
+          workflow: one big spec to bootstrap, then shorter “add this feature” messages
+          when I wanted new behaviour or UI.
+        </p>
+
+        <h3 class="project-subsection-title">1 — Bootstrap the whole bot</h3>
+        <div class="code-snippet">
+          <pre>Create a Telegram bot that lets me save videos permanently by forwarding
+them to the bot. When I forward a video, the bot should detect it, copy or download
+it, re-upload to a private storage channel, and store metadata in SQLite (original
+channel name, caption, file_id, archive message id). Include categories, search,
+favorites, duplicate detection, and commands like /videos, /search, /tag, /stats.
+Use Python and aiogram. Project folder: videodownloadbot.</pre>
+        </div>
+        <p>
+          Cursor scaffolded <code>src/bot.py</code>, <code>src/db.py</code>, config,
+          migrations, and the first working forward-to-save loop from this single message.
+        </p>
+
+        <h3 class="project-subsection-title">2 — Add bulk category assignment</h3>
+        <div class="code-snippet">
+          <pre>Add a bulk_upload_id column on each saved video. When I forward many
+videos in a row, debounce them into one batch and show a single category picker.
+When I pick a category, run UPDATE videos SET primary_category = ? WHERE
+bulk_upload_id = ? so every video in that batch gets the same label, including
+ones that finish saving late.</pre>
+        </div>
+        <p>
+          Cursor added <code>bulk_upload_id</code>, in-flight save tracking, and the
+          SQL-based batch update instead of a fragile in-memory id list.
+        </p>
+
+        <h3 class="project-subsection-title">3 — Add Cancel and Skip on the category picker</h3>
+        <div class="code-snippet">
+          <pre>Add two buttons below the category list on the picker after a forward:
+"Skip → Uncategorized" (save and set primary_category to uncategorized) and
+"Cancel · Don't save" (delete the archive message and DB row — treat the forward
+as ignored). For /move, Cancel should only abort the move, not delete videos.</pre>
+        </div>
+        <p>
+          Cancel on new uploads deletes the archive channel message and DB row; Skip keeps
+          the video as <code>uncategorized</code>. <code>/move</code> Cancel only aborts
+          the move (no delete).
+        </p>
+
+        <h3 class="project-subsection-title">4 — Add paginated /videos browser</h3>
+        <div class="code-snippet">
+          <pre>Add a /videos command with inline keyboards: categories first, then a
+paginated list per category. Use a compact pager row (⏪ 1 2 3 4 5 ⏩), one video
+button per row, a 10-video preview album per page, and duplicate page controls
+under each preview so I can change pages without scrolling up.</pre>
+        </div>
+
+        <h3 class="project-subsection-title">5 — Sort categories by video count</h3>
+        <div class="code-snippet">
+          <pre>In send_category_picker, order category buttons by video_count DESC so
+the biggest folders (e.g. zw) show up first.</pre>
+        </div>
+
+        <h3 class="project-subsection-title">6 — Add FSInputFile for fallback uploads</h3>
+        <div class="code-snippet">
+          <pre>On the download-and-reupload fallback path, send the video with
+FSInputFile(tmp_path) from aiogram instead of passing the path as a string to
+send_video (Windows paths were being parsed as bad HTTP URLs).</pre>
+        </div>
+
+        <h3 class="project-subsection-title">7 — Add start_bot.bat for Windows</h3>
+        <div class="code-snippet">
+          <pre>Add start_bot.bat and stop_bot.bat in the project root so I can
+double-click to run the bot from .venv on Windows.</pre>
+        </div>
+        <p>
+          Added <code>start_bot.bat</code> and <code>stop_bot.bat</code> in the repo root.
+        </p>
+      </section>
+
+      <section class="project-copy" id="features">
+        <h2 class="project-section-title">Key features</h2>
+
+        <h3 class="project-subsection-title">Forward-to-save</h3>
+        <p>
+          Send or forward any supported video (including many video documents). The
+          bot prefers <code>copy_message</code> into the archive channel — server-side,
+          no local download — which also works for large files. If copy fails, it
+          falls back to download + re-upload with <code>FSInputFile</code> (Windows paths
+          taught me that lesson quickly).
+        </p>
+
+        <h3 class="project-subsection-title">Batch grouping &amp; collections</h3>
+        <p>
+          Forwards sent one after another are debounced into a <strong>bulk batch</strong>;
+          I get one category picker for the whole set. Albums (<code>media_group_id</code>)
+          become a <strong>collection</strong>: each item is saved, linked in SQLite, and
+          a summary post is added to the archive channel with links to every item.
+        </p>
+
+        <!-- GIF: Batch upload + single category picker -->
+        <figure class="portfolio-figure media-placeholder">
+          <div class="project-image thumb-04" style="min-height: 12rem; border-radius: 0.5rem">
+            <span class="thumb-label">Batch placeholder</span>
+          </div>
+          <figcaption>
+            [Insert demo GIF: forwarding several videos, then picking one category for
+            all of them]
+          </figcaption>
+        </figure>
+
+        <h3 class="project-subsection-title">Categorization UI</h3>
+        <p>
+          After a save, an inline keyboard lists existing categories (sorted by video
+          count), plus “New category,” “Skip → Uncategorized,” and “Cancel · Don’t save.”
+          Cancel on a fresh forward <strong>removes</strong> that upload from the archive
+          and database — useful when I forwarded something by mistake. Assigning a category
+          updates every video in the batch via <code>bulk_upload_id</code>, so late-finishing
+          saves still land in the right folder.
+        </p>
+
+        <!-- IMAGE: Category picker after upload -->
+        <figure class="portfolio-figure media-placeholder">
+          <div class="project-image thumb-06" style="min-height: 12rem; border-radius: 0.5rem">
+            <span class="thumb-label">Category UI placeholder</span>
+          </div>
+          <figcaption>
+            [Insert screenshot: inline category buttons after saving a video]
+          </figcaption>
+        </figure>
+
+        <h3 class="project-subsection-title">Browse &amp; search</h3>
+        <p>
+          <code>/videos</code> opens a category menu. Inside a category I get a paginated
+          list (links to archive messages), a 10-video preview album per page, and compact
+          page controls under the grid so I do not scroll back to the top. <code>/search</code>
+          runs a simple SQL <code>LIKE</code> over captions, tags, source titles, and
+          categories. <code>/move</code> re-categorizes one or many ids without re-archiving.
+        </p>
+
+        <h3 class="project-subsection-title">Tags &amp; maintenance commands</h3>
+        <p>
+          <code>/tag</code> sets a primary category plus extra tags on one video.
+          <code>/delete</code>, <code>/stats</code>, and guarded wipe commands exist for
+          housekeeping. Owner-only checks mean random users cannot touch the archive.
+        </p>
+      </section>
+
+      <section class="project-copy" id="code">
+        <h2 class="project-section-title">Code highlights</h2>
+
+        <p>
+          Telegram bots do not receive “the file on disk.” They receive a
+          <code>file_id</code> — an opaque handle the API uses to re-send the same media
+          later. Storing <code>file_id</code> plus the archive channel’s
+          <code>message_id</code> is how I can rebuild links and preview albums months later.
+        </p>
+
+        <h3 class="project-subsection-title">Handling incoming video</h3>
+
+        <div class="code-snippet">
+          <pre>@dp.message(F.video | F.document)
+async def handle_video(m: Message) -> None:
+    extracted = _extract_video(m)
+    if not extracted:
+        return
+    file_id, file_unique_id, file_size, caption, kind = extracted
+
+    copied = await bot.copy_message(
+        chat_id=cfg.archive_channel_id,
+        from_chat_id=m.chat.id,
+        message_id=m.message_id,
+    )
+
+    video_id = await db.insert_video(
+        file_id=file_id,
+        file_unique_id=file_unique_id,
+        archive_chat_id=cfg.archive_channel_id,
+        archive_message_id=copied.message_id,
+        bulk_upload_id=int(bulk["bulk_id"]) if bulk else None,
+        ...
+    )</pre>
+        </div>
+
+        <p>
+          <code>copy_message</code> creates an independent message in my channel, so the
+          archive does not depend on the original chat staying reachable. The insert gives
+          me a stable integer <code>#id</code> for commands like <code>/move 42 zw</code>.
+        </p>
+
+        <h3 class="project-subsection-title">Album / media-group batching</h3>
+
+        <div class="code-snippet">
+          <pre>if m.media_group_id:
+    key = (m.chat.id, str(m.media_group_id))
+    grp = pending_groups.setdefault(key, _PendingGroup(...))
+    grp.messages.append(m)
+    grp.finalize_task = asyncio.create_task(
+        finalize_media_group(key)
+    )
+    return</pre>
+        </div>
+
+        <p>
+          Telegram delivers album items as separate updates sharing a
+          <code>media_group_id</code>. I buffer them, wait for the burst to finish, then
+          save all items and create one collection row. Without the delay, I would save
+          incomplete albums.
+        </p>
+
+        <h3 class="project-subsection-title">Bulk category assignment</h3>
+
+        <div class="code-snippet">
+          <pre>elif target["t"] == "b":
+    bulk = pending_bulk_by_id.get(int(target["id"]))
+    if not bulk:
+        return
+    await db.set_primary_category_for_bulk_upload(
+        int(bulk["bulk_id"]), category
+    )</pre>
+        </div>
+
+        <p>
+          Early versions tracked video ids only in memory — if I categorized before the
+          last save finished, a few videos stayed <code>uncategorized</code>. Tagging each
+          row with <code>bulk_upload_id</code> at insert time and updating by that id fixed
+          the race for good.
+        </p>
+      </section>
+
+      <section class="project-copy" id="challenges">
+        <h2 class="project-section-title">Challenges &amp; learnings</h2>
+
+        <ul>
+          <li>
+            <strong>Async timing.</strong> Multiple forwards mean overlapping handlers.
+            I track <code>in_flight</code> saves and debounce the category picker so it
+            appears once the batch actually settles.
+          </li>
+          <li>
+            <strong>Telegram quirks.</strong> Protected content cannot be copied. Large
+            files may force a download path. Callback data has a tight length limit, so
+            category names are normalized and truncated.
+          </li>
+          <li>
+            <strong>UX on mobile.</strong> Pagination for <code>/videos</code> needed
+            preview grids <em>and</em> duplicate page controls under each grid — otherwise
+            I was scrolling forever to change pages.
+          </li>
+          <li>
+            <strong>Keeping the index honest.</strong> Cancel-on-upload deletes both the DB
+            row and the channel message so “mistake forwards” do not clutter the archive.
+          </li>
+        </ul>
+      </section>
+
+      <section class="project-copy" id="future">
+        <h2 class="project-section-title">What I would add next</h2>
+
+        <ul>
+          <li>Deploy on a small VPS with <code>systemd</code> so it runs 24/7 without my laptop</li>
+          <li>Optional cloud backup (S3 / Drive) for metadata exports</li>
+          <li>Simple web dashboard to browse categories outside Telegram</li>
+          <li>Auto-tagging from captions (keyword rules or a small LLM pass)</li>
+        </ul>
+
+        <p>
+          For now it does what I needed: forward, label, find. That is enough to call it
+          a successful side project — and a good excuse to learn asyncio properly.
+        </p>
+      </section>
+    </main>
+
+    <script src="image-lightbox.js"></script>
+    <script src="reference-gallery.js"></script>
+  </body>
+</html>

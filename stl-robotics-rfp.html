@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Praxis II RFP for STL Robotics: collecting and sorting loose VEX parts from portable floors after build sessions."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon-512.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#09090b" />
+    <title>STL Robotics Floor Parts RFP | Junye</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="project-page portfolio-page">
+      <header class="portfolio-hero">
+        <a class="back-link back-link-ghost" href="index.html">Back to portfolio</a>
+
+        <p class="project-kicker">Praxis II / Community RFP</p>
+        <h1 class="project-page-title">
+          Retrieving and Sorting Loose Parts at STL Robotics
+        </h1>
+
+        <p class="project-caption">
+          <i>
+            A request for proposal for a high school VEX team that loses screws
+            to the floor faster than it finds them again.
+          </i>
+        </p>
+
+        <div class="project-facts">
+          <span class="fact-pill">STL Robotics (STLR) · St. Theresa of Lisieux CHS</span>
+          <span class="fact-pill">~4,900 word Praxis II RFP</span>
+          <span class="fact-pill">Interviews + portable measurements</span>
+          <span class="fact-pill">Scope: collect all · sort metallic VEX hardware</span>
+        </div>
+      </header>
+
+      <section class="project-copy" id="overview">
+        <h2 class="project-section-title">What this was</h2>
+
+        <p>
+          This is the community RFP our Praxis II team wrote for STL Robotics,
+          the VEX program at St. Theresa of Lisieux Catholic High School. Six
+          student teams share two portables, meet several times a week after
+          school, and leave a trail of nuts, screws, zip ties, and plastic debris
+          on the floor. The document asks another design team to build something
+          that picks that mess up and sorts the metal hardware well enough to put
+          back in the parts bins instead of the trash.
+        </p>
+
+        <p>
+          I was part of the authoring team. We spent time inside the portables,
+          read how STLR runs build sessions, and interviewed members and leaders
+          so the need statement was theirs, not just ours guessing from the
+          hallway. The full PDF is the formal submission. This page is the short
+          version I would use to explain the project to someone outside Praxis.
+        </p>
+
+        <div class="figure-grid two-up">
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/stl-robotics-rfp/report-p8-img1.png"
+                alt="View inside an STL Robotics portable with the testing field"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Portable workspace during a quieter week near exams.
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-figure">
+            <div class="portfolio-figure-media">
+              <img
+                src="assets/stl-robotics-rfp/report-p11-img2.png"
+              alt="Loose robotics parts scattered on the portable floor after a build session"
+              loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Loose parts on the floor after a build session. Members told us
+              this hurts morale and wastes money when cleanup goes to the garbage.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-copy" id="community">
+        <h2 class="project-section-title">The community</h2>
+
+        <p>
+          STLR is not a single club table. It is six ten person teams, three
+          teacher advisors, and a competition calendar that can stretch build
+          nights from one hour to seven when a tournament is close. Students build
+          for the current VEX V5 game (Push Back during our study year), test on
+          the grey tile field in the middle of the portable, and organize cleanup
+          themselves. Advisors care about safety and budgets, but they are not
+          the ones crawling under desks for #8-32 screws.
+        </p>
+
+        <p>
+          We mapped stakeholders from students and responding design teams to
+          teachers, school admin, and VEX as a tertiary partner. The primary need
+          we heard: cleanup must not slow robot work during the session, but after
+          the session the floor still has to be cleared without throwing away
+          reusable metal parts because sorting feels too slow.
+        </p>
+
+        <figure class="portfolio-figure">
+          <div class="portfolio-figure-media">
+            <img
+              src="assets/stl-robotics-rfp/report-p7-img1.png"
+              alt="Diagram of portable layout showing team build zones and testing field"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            Portable layout: team build zones in red, programming and testing in
+            green.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="project-copy" id="opportunity">
+        <h2 class="project-section-title">The opportunity</h2>
+
+        <p>
+          Parts fall because building fast is the first priority. Cleanup between
+          sessions is rare because the tools they already have are painful. Hand
+          pickup means crawling under tables for dirty hardware. Brooms move dirt
+          quickly but everything still lands in one pile. Shop vacs are bulky.
+          Magnetic sweepers help with steel but do not sort lengths. Section 5
+          compares four reference designs in the gallery below. Interview
+          quotes in the appendix are blunt: swept piles often go straight to the
+          trash because nobody wants to sit and separate trash from screws.
+        </p>
+
+        <p>
+          We scoped sorting to metallic VEX hardware (nuts, screws, washers in
+          Appendix D) because those parts are standardized, expensive, and worth
+          recovering. The design should still collect plastic and other debris,
+          but the precision work is on metal. Members asked for collection and
+          sorting together so sorting is not a second chore after a long night.
+        </p>
+
+        <div
+          class="reference-gallery"
+          data-reference-gallery
+          tabindex="0"
+          aria-roledescription="carousel"
+          aria-label="Reference designs from the RFP"
+        >
+          <div class="reference-gallery-toolbar">
+            <p class="reference-gallery-label">Reference designs (Section 5)</p>
+            <p class="reference-gallery-counter" data-gallery-counter>1 / 4</p>
+          </div>
+
+          <div class="reference-gallery-frame">
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-prev
+              aria-label="Previous reference design"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 6l-6 6 6 6"></path>
+              </svg>
+            </button>
+
+            <div class="reference-gallery-viewport">
+              <figure class="reference-gallery-slide is-active">
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/report-p13-img1.png"
+                    alt="Broom and dustpan set used as a reference design"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  5.1 Broom and dustpan. Convenient and familiar, but collected
+                  parts still need manual sorting or they end up in the trash.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/report-p14-img1.png"
+                    alt="Heavy duty magnetic floor sweeper on wheels"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  5.2 Magnetic sweeper. Strong for steel hardware, weak on
+                  plastic debris, and no sorting into bins.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/report-p15-img1.png"
+                    alt="Shop vac vacuum reference design"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  5.3 Shop vac. Pulls in mixed debris quickly, bulky in a crowded
+                  portable, and still leaves sorting as a second job.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/report-p16-img1.png"
+                    alt="M3 bolt sorting tray with measuring slots"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  5.4 M3 bolt sorter. Useful for sorting after collection, but not
+                  for picking parts off the floor and prone to jamming at volume.
+                </figcaption>
+              </figure>
+            </div>
+
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-next
+              aria-label="Next reference design"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6l6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="project-copy" id="goals">
+        <h2 class="project-section-title">Goals we set for responders</h2>
+
+        <p>
+          Section 6 turns interviews into measurable objectives. Examples: pick up
+          parts from about 10 mm spacers up to 11 inch zip ties and 4 inch traction
+          wheels; sort metallic hardware with greater than 95% accuracy; reach
+          under tables and around the field; finish meaningful floor cleanup in about
+          15 minutes; keep push/pull forces under 110 N and lifted loads under 7 kg;
+          avoid staining or denting the portable floors. We also wrote NGO tables
+          linking needs, goals, and objectives so responders could trace every
+          requirement back to a stakeholder quote.
+        </p>
+
+        <p>
+          Below are example pages showing how those requirements are laid out.
+          They are not the full document, just samples of the NGO diagram and the
+          goal/objective tables responders would use.
+        </p>
+
+        <div
+          class="reference-gallery reference-gallery-charts"
+          data-reference-gallery
+          tabindex="0"
+          aria-roledescription="carousel"
+          aria-label="Example requirement charts from the RFP"
+        >
+          <div class="reference-gallery-toolbar">
+            <p class="reference-gallery-label">Example requirement charts</p>
+            <p class="reference-gallery-counter" data-gallery-counter>1 / 4</p>
+          </div>
+
+          <div class="reference-gallery-frame">
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-prev
+              aria-label="Previous chart example"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 6l-6 6 6 6"></path>
+              </svg>
+            </button>
+
+            <div class="reference-gallery-viewport">
+              <figure class="reference-gallery-slide is-active">
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/report-p17-img1.png"
+                    alt="NGO diagram linking needs, goals, and objectives"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Figure 6: needs, goals, and objectives map used across Section
+                  6.
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/renders/page-13-2x.png"
+                    alt="Reference design benefits and drawbacks table example"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Example benefits and drawbacks table for a reference design
+                  (Section 5.1 style).
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/renders/page-18-2x.png"
+                    alt="Goal and objectives table for sorting and reusability"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Example goal and objectives table for sorting metallic parts
+                  (Section 6.2).
+                </figcaption>
+              </figure>
+
+              <figure class="reference-gallery-slide" hidden>
+                <div class="reference-gallery-media">
+                  <img
+                    src="assets/stl-robotics-rfp/renders/page-19-2x.png"
+                    alt="Goals for portable access and safety requirements"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Example goals for portable access and session safety (Sections
+                  6.3 and 6.4).
+                </figcaption>
+              </figure>
+            </div>
+
+            <button
+              type="button"
+              class="reference-gallery-arrow"
+              data-gallery-next
+              aria-label="Next chart example"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6l6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="project-copy" id="process">
+        <h2 class="project-section-title">How we worked</h2>
+
+        <p>
+          The report includes calendar screenshots, portable dimensions, part
+          catalogs, and interview transcripts in the appendix. We listed our own
+          biases up front: engineering students like measurable problems, we had
+          limited time in the space, and we cared about making a strong Praxis
+          project. Mitigations were more interviews, executive check ins, and
+          primary photos from real sessions.
+        </p>
+
+        <p>
+          We compared four reference designs (broom and dustpan, magnetic sweeper,
+          shop vac, M3 bolt sorter) against seven goal areas: collection coverage,
+          sorting, portable geometry, safety, ergonomics, and floor protection.
+          None of them collected and sorted at the scale STLR wanted, which is why
+          the RFP exists.
+        </p>
+
+        <p>
+          The conclusion asks for a solution that is safe in a crowded portable,
+          usable by different members, and honest about ergonomics so cleanup is
+          not only done by the tallest person on the team. The hope is simple: less
+          time as janitors, more time building robots they care about.
+        </p>
+      </section>
+
+      <section class="project-copy" id="takeaways">
+        <h2 class="project-section-title">What I took from it</h2>
+
+        <p>
+          This was my first long community facing document. It taught me that a
+          good RFP sounds like the stakeholders, not like a textbook. The quotes
+          about trash bags full of mixed hardware did more work than another
+          paragraph of our own analysis. Framing sorting as a budget and morale
+          issue, not just tidiness, made the opportunity feel real.
+        </p>
+
+        <p>
+          If you want every table, cited interview, and appendix dimension, that
+          is all in the submitted PDF. This page is the five minute tour.
+        </p>
+      </section>
+
+      <a class="back-link" href="index.html">Back</a>
+    </main>
+
+    <script src="reference-gallery.js"></script>
+    <script src="image-lightbox.js"></script>
+  </body>
+</html>

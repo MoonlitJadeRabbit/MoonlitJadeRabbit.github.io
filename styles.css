@@ -551,9 +551,13 @@ textarea {
 }
 
 .project-copy a {
-  color: var(--soft);
+  color: #6eb6e8;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.project-copy a:hover {
+  color: #9fd0f5;
 }
 
 .project-section-title {
@@ -865,6 +869,16 @@ textarea {
   font-size: 0.8rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.fact-pill a {
+  color: #6eb6e8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fact-pill a:hover {
+  color: #9fd0f5;
 }
 
 .portfolio-hero-grid {

@@ -33,7 +33,7 @@
         <div class="project-facts">
           <span class="fact-pill">Junye Zhou · solo report</span>
           <span class="fact-pill">October 28, 2025</span>
-          <span class="fact-pill">Tracker · iPhone · Python fits</span>
+          <span class="fact-pill">Tracker · iPhone</span>
           <span class="fact-pill">Q ≈ 109 (two methods agree)</span>
         </div>
       </header>
@@ -199,138 +199,6 @@
         </p>
       </section>
 
-      <section class="project-copy" id="python">
-        <h2 class="project-section-title">Python analysis</h2>
-
-        <p>
-          Tracker exports tab-separated tables (time, angle, uncertainties). I
-          kept the analysis scripts in a local
-          <code>PHY180 assets</code> folder next to those files — the same layout
-          as on
-          <a
-            href="https://github.com/MoonlitJadeRabbit/MoonlitJadeRabbit.github.io/tree/main/PHY180%20assets"
-            target="_blank"
-            rel="noreferrer"
-            >GitHub</a
-          >
-          if you want to read the full source. Below is what each script does; two
-          files overlap on ring-down fitting (noted in the table).
-        </p>
-
-        <div class="script-table-wrap">
-          <table class="script-table">
-            <thead>
-              <tr>
-                <th scope="col">Script</th>
-                <th scope="col">Report section</th>
-                <th scope="col">What it does</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>fit_black_box.py</code></td>
-                <td>Angle vs period (Fig.&nbsp;3)</td>
-                <td>
-                  Adapted from Prof.&nbsp;Wilson’s
-                  <code>black_box_fit.py</code>: loads four-column data, fits
-                  <em>T</em>(θ) = <em>a</em> + <em>b</em>θ + <em>c</em>θ² with
-                  weighted <code>curve_fit</code>, prints parameters with
-                  uncertainties, χ², correlation matrix, and saves the fit plot.
-                </td>
-              </tr>
-              <tr>
-                <td><code>run_ringdown_with_bb.py</code></td>
-                <td>Amplitude decay / Q (Fig.&nbsp;4)</td>
-                <td>
-                  Main ring-down script. Aligns data to the first peak, fits a
-                  damped cosine, inflates parameter errors using reduced χ²,
-                  derives <em>T</em> and <em>Q</em> = πτ/<em>T</em>, and plots the
-                  red cosine plus a green envelope from the <em>same</em> fit
-                  (not a separate envelope fit).
-                </td>
-              </tr>
-              <tr>
-                <td><code>Qfactor.py</code></td>
-                <td>Same as above</td>
-                <td>
-                  <strong>Earlier duplicate.</strong> Same damped-cosine model and
-                  <code>fit_black_box</code> loader, but delegates plotting to
-                  <code>bb.plot_fit</code> instead of the custom two-panel figure.
-                  I kept <code>run_ringdown_with_bb.py</code> for the report
-                  graphics.
-                </td>
-              </tr>
-              <tr>
-                <td><code>run_length_vs_period_powerlaw.py</code></td>
-                <td>Length vs period (Fig.&nbsp;5)</td>
-                <td>
-                  Fits <em>T</em> = <em>kL<sup>n</sup></em> with errors on
-                  <em>T</em>, prints <em>k</em>, <em>n</em>, R², reduced χ², and
-                  theory reference <em>k</em> = 2π/√<em>g</em>. Produces the
-                  linear plot with residuals and a log–log view.
-                </td>
-              </tr>
-              <tr>
-                <td><code>plot_L_vs_Q.py</code></td>
-                <td>Length vs Q (Fig.&nbsp;7)</td>
-                <td>
-                  In <code>Qfactor Videos For Different Lengths/</code>. Cubic
-                  fit <em>Q</em>(<em>L</em>) = <em>a</em> + <em>bL</em> + … with
-                  optional weighting (default unweighted so a single tight d<em>Q</em>
-                  does not dominate). Reads <code>LQ_data.txt</code> built from
-                  per-length ring-down runs.
-                </td>
-              </tr>
-              <tr>
-                <td><code>print_tau.py</code></td>
-                <td>Q vs length (supporting)</td>
-                <td>
-                  Batch helper: fits each <code>ringdown_t_theta.txt</code>,
-                  prints τ only, and writes
-                  <code>ringdown_t_theta_with_cycles.txt</code> with a cycle index
-                  column for method&nbsp;2 (counting swings to
-                  e<sup>−π/2</sup> amplitude).
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="project-subsection-title">Shared model (ring-down)</h3>
-
-        <p>
-          Every ring-down script uses the same offset plus exponentially decaying
-          cosine — the fit that produced τ = 57.41&nbsp;s and
-          <em>Q</em> ≈ 109 on the page:
-        </p>
-
-        <div class="code-snippet">
-          <pre>θ(t) = C + A · exp(−t/τ) · cos(ωt + φ)
-
-T = 2π/ω
-Q = π · τ / T</pre>
-        </div>
-
-        <p>
-          Initial guesses come from the median offset, zero-crossing period, and
-          a log-linear slope through peak amplitudes so
-          <code>scipy.optimize.curve_fit</code> converges reliably on noisy
-          Tracker exports.
-        </p>
-
-        <h3 class="project-subsection-title">Workflow</h3>
-
-        <p>
-          <strong>1.</strong> Export from Tracker → <code>*.txt</code> (four
-          columns where uncertainties exist).<br />
-          <strong>2.</strong> Run the script for that analysis block (double-click
-          on Windows opens a plot and prints fit parameters in the terminal).<br />
-          <strong>3.</strong> Paste printed values (and matplotlib figures) into
-          the lab report. ChatGPT helped adapt Wilson’s plotting boilerplate for
-          <code>fit_black_box.py</code>; the models, data, and fits are mine.
-        </p>
-      </section>
-
       <section class="project-copy" id="takeaways">
         <h2 class="project-section-title">What I’d do differently</h2>
 
@@ -341,13 +209,6 @@ Q = π · τ / T</pre>
           instead of a fixed point added roughly ±0.01&nbsp;rad — next time I’d
           track the white cap on a plain background so Tracker stops hunting the
           wrong pixel.
-        </p>
-
-        <p>
-          The Python section above lists every script and which figure it fed.
-          ChatGPT helped adapt Wilson’s <code>black_box_fit.py</code> into
-          <code>fit_black_box.py</code>; the prompts and limits are in the report
-          appendix. The physics, data, and fits are mine.
         </p>
 
         <p>

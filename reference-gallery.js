@@ -98,14 +98,6 @@
       gallery.setAttribute("aria-roledescription", "carousel");
       gallery.setAttribute("aria-label", label);
 
-      const toolbar = document.createElement("div");
-      toolbar.className = "reference-gallery-toolbar";
-      toolbar.innerHTML =
-        '<p class="reference-gallery-label"></p><p class="reference-gallery-counter" data-gallery-counter>1 / ' +
-        slideCount +
-        "</p>";
-      toolbar.querySelector(".reference-gallery-label").textContent = label;
-
       const frame = document.createElement("div");
       frame.className = "reference-gallery-frame";
 
@@ -123,9 +115,24 @@
       nextButton.setAttribute("aria-label", "Next slide");
       nextButton.innerHTML = arrowNext;
 
-      frame.append(prevButton, viewport, nextButton);
+      const dots = document.createElement("div");
+      dots.className = "reference-gallery-dots";
+      dots.setAttribute("data-gallery-dots", "");
+      for (let dotIndex = 0; dotIndex < slideCount; dotIndex += 1) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "reference-gallery-dot";
+        if (dotIndex === 0) {
+          dot.classList.add("is-active");
+        }
+        dot.setAttribute("data-gallery-dot", String(dotIndex));
+        dot.setAttribute("aria-label", "Go to image " + (dotIndex + 1));
+        dots.appendChild(dot);
+      }
 
-      gallery.append(toolbar, frame);
+      frame.append(prevButton, viewport, nextButton);
+      gallery.append(frame, dots);
+      gallery.dataset.galleryLabel = label;
       grid.replaceWith(gallery);
     });
   }
@@ -147,10 +154,41 @@
         return;
       }
 
+      gallery.querySelector(".reference-gallery-toolbar")?.remove();
+
       const prevButton = gallery.querySelector("[data-gallery-prev]");
       const nextButton = gallery.querySelector("[data-gallery-next]");
-      const counter = gallery.querySelector("[data-gallery-counter]");
+      const frame = gallery.querySelector(".reference-gallery-frame");
+      let dots = Array.from(gallery.querySelectorAll("[data-gallery-dot]"));
+      if (!dots.length && frame) {
+        const dotRow = document.createElement("div");
+        dotRow.className = "reference-gallery-dots";
+        slides.forEach((_, dotIndex) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "reference-gallery-dot";
+          dot.setAttribute("data-gallery-dot", String(dotIndex));
+          dot.setAttribute("aria-label", "Go to image " + (dotIndex + 1));
+          dotRow.appendChild(dot);
+        });
+        frame.insertAdjacentElement("afterend", dotRow);
+        dots = Array.from(dotRow.querySelectorAll("[data-gallery-dot]"));
+      }
       let index = 0;
+
+      function placeArrows() {
+        const media = slides[index].querySelector(".reference-gallery-media");
+        if (!media || !frame) {
+          return;
+        }
+        const top = media.offsetTop + media.offsetHeight / 2;
+        if (prevButton) {
+          prevButton.style.top = top + "px";
+        }
+        if (nextButton) {
+          nextButton.style.top = top + "px";
+        }
+      }
 
       function show(nextIndex) {
         index = (nextIndex + slides.length) % slides.length;
@@ -159,14 +197,25 @@
           slide.classList.toggle("is-active", isActive);
           slide.hidden = !isActive;
         });
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === index);
+        });
         pauseGalleryVideos(gallery, slides[index]);
-        if (counter) {
-          counter.textContent = `${index + 1} / ${slides.length}`;
+        placeArrows();
+        const mediaEl = slides[index].querySelector("img, video");
+        if (mediaEl && mediaEl.tagName === "IMG" && !mediaEl.complete) {
+          mediaEl.addEventListener("load", placeArrows, { once: true });
         }
       }
 
       prevButton?.addEventListener("click", () => show(index - 1));
       nextButton?.addEventListener("click", () => show(index + 1));
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          show(Number(dot.getAttribute("data-gallery-dot")));
+        });
+      });
+      window.addEventListener("resize", placeArrows);
 
       gallery.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {

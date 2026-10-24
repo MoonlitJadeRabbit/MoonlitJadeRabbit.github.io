@@ -33,7 +33,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
 }
 
@@ -1062,9 +1062,9 @@ body.lightbox-open {
 
 .reference-gallery {
   margin: 1.5rem 0 2rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  background: #111114;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .reference-gallery:focus-visible {
@@ -1073,11 +1073,7 @@ body.lightbox-open {
 }
 
 .reference-gallery-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.85rem;
+  display: none;
 }
 
 .reference-gallery-label,
@@ -1094,10 +1090,8 @@ body.lightbox-open {
 }
 
 .reference-gallery-frame {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.65rem;
-  align-items: center;
+  position: relative;
+  display: block;
 }
 
 .reference-gallery-viewport {
@@ -1107,8 +1101,8 @@ body.lightbox-open {
 
 .reference-gallery-slide {
   margin: 0;
-  border: 1px solid var(--line);
-  background: #0a0a0c;
+  border: 0;
+  background: transparent;
 }
 
 .reference-gallery-slide:not(.is-active) {
@@ -1116,52 +1110,93 @@ body.lightbox-open {
 }
 
 .reference-gallery-media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 220px;
-  max-height: min(52vh, 420px);
-  padding: 1rem;
+  display: block;
+  min-height: 0;
+  max-height: none;
+  padding: 0;
+  background: transparent;
+}
+
+.reference-gallery-media img,
+.reference-gallery-media video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  cursor: zoom-in;
+  border: 1px solid #000;
   background: #0a0a0c;
 }
 
-.reference-gallery-media img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: min(48vh, 380px);
-  object-fit: contain;
-  cursor: zoom-in;
-}
-
 .reference-gallery-slide figcaption {
-  padding: 0.75rem 0.9rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.45;
+  padding: 0.55rem 0 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.5;
 }
 
 .reference-gallery-arrow {
+  position: absolute;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  padding: 0;
-  border: 1px solid var(--line-strong);
-  background: #18181b;
-  color: var(--text);
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0.65rem;
+  border: 0;
+  border-radius: 0;
+  appearance: none;
+  background: #27272a;
+  color: #fff;
   cursor: pointer;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease;
+  transform: translateY(-50%);
+  transition: background-color 180ms ease;
+}
+
+.reference-gallery-frame > [data-gallery-prev] {
+  left: 0.75rem;
+}
+
+.reference-gallery-frame > [data-gallery-next] {
+  right: 0.75rem;
 }
 
 .reference-gallery-arrow:hover {
-  background: #27272a;
-  border-color: #3f3f46;
+  background: #3f3f46;
+}
+
+.reference-gallery-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.reference-gallery-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  appearance: none;
+  background: #71717a;
+  cursor: pointer;
+}
+
+.reference-gallery-dot.is-active {
+  background: #fff;
+  transform: scale(1.15);
+}
+
+.reference-gallery-dot:hover {
+  background: #d4d4d8;
 }
 
 .reference-gallery-arrow svg {
@@ -1187,26 +1222,17 @@ body.lightbox-open {
 }
 
 @media (max-width: 640px) {
-  .reference-gallery-frame {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-  }
-
   .reference-gallery-arrow {
-    width: 100%;
-    min-height: 2.75rem;
-  }
-
-  .reference-gallery-viewport {
-    grid-row: 1;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .reference-gallery-frame > [data-gallery-prev] {
-    grid-row: 2;
+    left: 0.4rem;
   }
 
   .reference-gallery-frame > [data-gallery-next] {
-    grid-row: 3;
+    right: 0.4rem;
   }
 }
 
@@ -1366,14 +1392,15 @@ body.lightbox-open {
 
 .table-wrap {
   margin: 1rem 0 1.2rem;
-  overflow-x: auto;
+  max-width: 100%;
+  overflow-x: hidden;
   border: 1px solid var(--line);
   background: #111114;
 }
 
 .portfolio-table {
   width: 100%;
-  min-width: 760px;
+  table-layout: fixed;
   border-collapse: collapse;
   color: var(--soft);
 }
@@ -1388,12 +1415,18 @@ body.lightbox-open {
 
 .portfolio-table th,
 .portfolio-table td {
-  padding: 0.85rem 0.95rem;
+  padding: 0.7rem 0.6rem;
   border-bottom: 1px solid var(--line);
   border-right: 1px solid var(--line);
   vertical-align: top;
   text-align: left;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  overflow-wrap: break-word;
+}
+
+.portfolio-table th:first-child,
+.portfolio-table td:first-child {
+  width: 28%;
 }
 
 .portfolio-table th:last-child,
@@ -1500,14 +1533,12 @@ body.lightbox-open {
 
 /* Long-form writeups: narrow column, readable type (ref. vkhouri.dev) */
 .portfolio-page {
-  width: min(42rem, calc(100% - 1.5rem));
-  max-width: 42rem;
+  width: min(48rem, calc(100% - 2rem));
+  max-width: 48rem;
   padding: 1rem 0 3rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: system-ui, sans-serif;
   font-size: 1rem;
-  line-height: 1.55;
-  letter-spacing: -0.01em;
+  line-height: 1.5;
 }
 
 .portfolio-page .portfolio-hero {
@@ -1521,19 +1552,21 @@ body.lightbox-open {
 }
 
 .portfolio-page .project-page-title {
-  margin: 0 0 0.65rem;
-  font-family: inherit;
-  font-size: clamp(1.65rem, 4vw, 2.1rem);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  font-family: "IndustryBlack", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0;
+  color: #fff;
 }
 
 .portfolio-page .project-caption {
-  margin: 0 0 0.85rem;
-  font-size: 0.98rem;
+  margin: 0.75rem 0 1.5rem;
+  font-size: 1rem;
+  font-style: italic;
   line-height: 1.5;
-  color: var(--soft);
+  color: #fff;
 }
 
 .portfolio-page .project-facts {
@@ -1555,19 +1588,20 @@ body.lightbox-open {
 
 .portfolio-page .project-copy p,
 .portfolio-page .project-copy li {
-  margin: 0 0 0.8rem;
+  margin: 0 0 1rem;
   font-size: 1rem;
-  line-height: 1.55;
-  color: var(--soft);
+  line-height: 1.5;
+  color: #fff;
 }
 
 .portfolio-page .project-section-title {
-  margin: 1.75rem 0 0.6rem;
-  font-family: inherit;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
+  margin: 1.5rem 0 1.5rem;
+  font-family: "IndustryBlack", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+  color: #fff;
 }
 
 .portfolio-page .project-section-title a {
@@ -1583,9 +1617,10 @@ body.lightbox-open {
 
 .portfolio-page .project-subsection-title,
 .portfolio-page .portfolio-mini-title {
-  font-family: inherit;
-  font-size: 1.02rem;
-  font-weight: 600;
+  font-family: "IndustryBlack", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
 }
 
 .portfolio-page .callout-quote {
@@ -1598,8 +1633,19 @@ body.lightbox-open {
 
 .portfolio-page .back-link,
 .portfolio-page .back-link-ghost {
-  font-family: inherit;
+  margin: 1.5rem 0;
+  padding: 0.625rem 1.25rem;
+  border: 0;
+  background: #f5f5f4;
+  color: #09090b;
+  font-family: "IndustryBlack", sans-serif;
   font-size: 0.875rem;
+}
+
+.portfolio-page .back-link:hover,
+.portfolio-page .back-link-ghost:hover {
+  background: #e7e5e4;
+  color: #09090b;
 }
 
 .portfolio-page .text-image-layout {
@@ -1650,33 +1696,15 @@ body.lightbox-open {
 }
 
 .portfolio-page .reference-gallery {
-  margin: 0.85rem 0 1rem;
-  padding: 0.75rem;
-}
-
-.portfolio-page .reference-gallery-toolbar {
-  margin-bottom: 0.65rem;
-}
-
-.portfolio-page .reference-gallery-label,
-.portfolio-page .reference-gallery-counter {
-  font-size: 0.8rem;
-}
-
-.portfolio-page .reference-gallery-hint {
-  margin: 0.5rem 0 0;
-  font-size: 0.78rem;
-}
-
-.portfolio-page .reference-gallery-media {
-  min-height: 0;
-  max-height: none;
+  margin: 0.85rem 0 1.5rem;
   padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .portfolio-page .reference-gallery-media img,
 .portfolio-page .reference-gallery-media video {
-  max-height: min(70vh, 520px);
+  max-height: none;
 }
 
 .reference-gallery-media--video {

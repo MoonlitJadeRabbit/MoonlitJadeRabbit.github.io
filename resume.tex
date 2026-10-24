@@ -1,0 +1,160 @@
+%-------------------------
+% Resume in LaTeX
+% Based on: https://github.com/sb2nov/resume (MIT License)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\definecolor{resumeblue}{RGB}{70, 130, 180}
+
+\newcommand{\projectLink}[2]{\href{https://moonlitjaderabbit.github.io/#1}{\textbf{#2}}}
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge \scshape Junye Zhou} \\ \vspace{4pt}
+    \small
+    \href{https://moonlitjaderabbit.github.io/}{\color{resumeblue}\textbf{Portfolio}: moonlitjaderabbit.github.io}
+    \color{black} $|$
+    \href{mailto:junye.zhou@mail.utoronto.ca}{\color{resumeblue}junye.zhou@mail.utoronto.ca}
+    \color{black}
+\end{center}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Toronto}{Toronto, ON}
+      {Bachelor of Applied Science in Computer Engineering}{Expected Graduation: 2029 + PEY}
+      \resumeItemListStart
+        \resumeItem{Coursework: Algorithms \& Data Structures (Python, C), Programming Fundamentals (C++), Digital Systems (Verilog), Electrical Circuits, Intro to Electronics, Linear Algebra}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Drone Team Member}{Sep 2026 -- Present}
+      {RSX Robotics for Space Exploration}{Toronto, ON}
+      \resumeItemListStart
+        \resumeItem{Used KiCad and performed soldering for ongoing drone power distribution board and radio-control link projects, supporting the electrical subteam's work on onboard power and communication systems}
+        \resumeItem{Review UART connections and SiK/MAVLink telemetry for the Kakute H7 flight controller. Support the planned 2.4\,GHz to 900\,MHz ExpressLRS control-link transition to separate the drone's control frequency from the rover's existing 2.4\,GHz system}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Engineering Design Team}{Feb 2026 -- Apr 2026}
+      {\projectLink{praxis-zipline-showcase.html}{Variable Resistance Swim Training System} $|$ Praxis II}{University of Toronto}
+      \resumeItemListStart
+        \resumeItem{Designed a capstan-based swim-training concept for the Mississauga Aquatic Club, targeting 8 resistance levels (60--170\,N) to provide adjustable training loads}
+        \resumeItem{Compared resistance concepts using Pugh matrices, considering adjustability, manufacturability, and poolside safety in the team's concept selection}
+        \resumeItem{Wrote engineering requirements and verification plans to define how the concept would be assessed; presented the team's design at the Praxis II Showcase}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Trench--Hydro One Innovation Sprint --- Winning Concept}{Oct 2026}
+      {Team Lead $|$ 5th Place $|$ Partial-Discharge Detection $|$ Python, openEMS}{}
+      \resumeItemListStart
+        \resumeItem{Led the team's development of a combined electromagnetic/acoustic concept for detecting partial discharge in capacitor voltage transformers}
+        \resumeItem{Simulated 300--700\,MHz electromagnetic pulse propagation with Python and openEMS in a simplified capacitor voltage transformer model. Represented partial discharge with a simulated source inside the oil and examined predicted electromagnetic fields at the housing}
+        \resumeItem{Compared noisy receiver waveforms and detection thresholds; documented source and material assumptions, model simplifications, and outstanding validation needs for the combined EM/acoustic concept}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\projectLink{civ102-matboard-bridge.html}{Matboard Bridge Design Challenge --- Winning Design}}{Nov 2025 -- Jan 2026}
+      {Bridge Design Team $|$ 2nd Place $|$ CIV102}{}
+      \resumeItemListStart
+        \resumeItem{Designed, analyzed, and fabricated a 1.25\,m matboard bridge with the team, earning 1st in the cohort and 2nd in the EngSci class}
+        \resumeItem{Cross-checked team-developed \href{https://github.com/ATATC/CIV102-Bridge-Project}{Python structural analysis} against hand calculations to verify predicted loads and failure modes, supporting the team's design decisions}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\href{https://torontodropin.ca/}{Toronto Badminton Drop-in Finder Website}}{Personal Project}
+      {\href{https://torontodropin.ca/}{torontodropin.ca}}{}
+      \resumeItemListStart
+        \resumeItem{Built a website using City of Toronto open data to help badminton players find nearby community centres and keep track of drop-in sessions}
+        \resumeItem{Included filters for sport, day, and location, nearby-centre sorting, and saved favourites so users can narrow their options and revisit preferred centres}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \begin{tabularx}{0.97\textwidth}{@{}>{\bfseries}l @{\hspace{1.5em}} X@{}}
+      Programming: & C, C++, Python, Java, Verilog \\
+      Tools: & Quartus Prime, ModelSim, DESim, KiCad, LTspice, MATLAB, OSP Tracker, openEMS, Cursor \\
+      Engineering: & Requirements definition, Pugh matrices, concept evaluation, verification planning \\
+     \end{tabularx}
+    }}
+ \end{itemize}
+
+\vspace{0.6em}
+\noindent\small For project details and additional work, visit my portfolio:
+\href{https://moonlitjaderabbit.github.io/}{https://moonlitjaderabbit.github.io/}
+
+\end{document}

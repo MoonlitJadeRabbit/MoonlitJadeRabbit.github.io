@@ -317,6 +317,10 @@ textarea {
   filter: brightness(1.08) contrast(1.02) saturate(1.04);
 }
 
+.project-image-has-photo img.thumb-focus-mid {
+  object-position: center 42%;
+}
+
 .project-image:not(.project-image-has-photo)::before {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 52%),
